@@ -52,8 +52,8 @@ int main()
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 5);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, GLFW_TRUE);
-    glfwWindowHint(GLFW_DECORATED, GLFW_FALSE);
+    //glfwWindowHint(GLFW_TRANSPARENT_FRAMEBUFFER, GLFW_TRUE);
+    //glfwWindowHint(GLFW_DECORATED, GLFW_FALSE);
     //glfwWindowHint(GLFW_MAXIMIZED, GLFW_TRUE);
     //glfwWindowHint(GLFW_RESIZABLE, GLFW_TRUE);
     //glfwWindowHint(GLFW_SAMPLES, 4);
@@ -74,7 +74,7 @@ int main()
 
     // glfw window creation
     // --------------------
-    GLFWwindow* window = glfwCreateWindow(width-3, height-3, "Sushi - Engine", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(width, height, "Sushi - Engine", NULL, NULL);
     if (window == NULL)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
@@ -335,8 +335,10 @@ int main()
 // ################################################################# rendering ###############################x###################################
 
 
-        renderer3D_EXP->setBackColor(0, 0, 0, true);
+        renderer3D_EXP->setBackColor(white[0], white[1], white[2], true);
         //renderer3D_EXP.setBackColor(orange[0], orange[1], orange[2], true);
+
+        // camera.calculateMatrix(); -> returns a mat4 type
 
         glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float)frameBuffW / (float)frameBuffH, 0.1f, 10000.0f);
         glm::mat4 view = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
