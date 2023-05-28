@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{527d1bfc-34c8-4c99-b09b-17b011602559}</ProjectGuid>
+    <RootNamespace>SushiCPP</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>Sushi_CPP</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <IncludePath>C:\Users\keres\Documents\coding\ruby\projects\Sushu_CPP\vendor\include;C:\Users\keres\Documents\coding\ruby\projects\Sushu_CPP\glm;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>C:\Users\keres\Documents\coding\ruby\projects\Sushu_CPP\vendor\include;C:\Users\keres\Documents\coding\ruby\projects\Sushu_CPP\glm;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <LibraryPath>C:\Users\keres\Documents\coding\ruby\projects\Sushu_CPP\vendor\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\keres\Documents\coding\ruby\projects\Sushu_CPP\vendor\include;C:\Users\keres\Documents\coding\ruby\projects\Sushu_CPP\glm;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <LibraryPath>C:\Users\keres\Documents\coding\ruby\projects\Sushu_CPP\vendor\lib\release;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\keres\Documents\coding\ruby\projects\Sushu_CPP\vendor\include;C:\Users\keres\Documents\coding\ruby\projects\Sushu_CPP\glm;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\keres\Documents\coding\cpp\box2d\include;</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\keres\Documents\coding\cpp\box2d\bin\bin\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <AdditionalIncludeDirectories>C:\Users\keres\Documents\coding\cpp\box2d\include;</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\keres\Documents\coding\cpp\box2d\bin\bin\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\keres\Documents\coding\cpp\box2d\include;C:\Users\keres\Documents\coding\ruby\projects\Sushu_CPP\vendor\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glfw3.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\keres\Documents\coding\cpp\box2d\bin\bin\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;RELEASE_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\keres\Documents\coding\cpp\box2d\include;C:\Users\keres\Documents\coding\ruby\projects\Sushu_CPP\vendor\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>glfw3.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\keres\Documents\coding\cpp\box2d\bin\bin\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <None Include="shaders\exp_3d.frag" />
+    <None Include="shaders\exp_3d.vert" />
+    <None Include="shaders\exp_multi_draw_3d.frag" />
+    <None Include="shaders\exp_multi_draw_3d.vert" />
+    <None Include="shaders\main.frag" />
+    <None Include="shaders\main.vert" />
+    <None Include="shaders\framebuff.fs" />
+    <None Include="shaders\framebuff.vs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\images\batch_indices.png" />
+    <Image Include="assets\images\cave.png" />
+    <Image Include="assets\images\character.png" />
+    <Image Include="assets\images\chinese_glyph.png" />
+    <Image Include="assets\images\colored_tilemap.png" />
+    <Image Include="assets\images\colored_tilemap_packed.png" />
+    <Image Include="assets\images\font.png" />
+    <Image Include="assets\images\Inner.png" />
+    <Image Include="assets\images\log.png" />
+    <Image Include="assets\images\monochrome_tilemap.png" />
+    <Image Include="assets\images\monochrome_tilemap_packed.png" />
+    <Image Include="assets\images\NPC_test.png" />
+    <Image Include="assets\images\NPC_test_1.png" />
+    <Image Include="assets\images\NPC_test_2.png" />
+    <Image Include="assets\images\objects.png" />
+    <Image Include="assets\images\Overworld.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="sources\Camera.cpp" />
+    <ClCompile Include="sources\Display.cpp" />
+    <ClCompile Include="sources\GameLogic.cpp" />
+    <ClCompile Include="sources\glad.c" />
+    <ClCompile Include="sources\Graphics.cpp" />
+    <ClCompile Include="sources\imgui.cpp" />
+    <ClCompile Include="sources\imgui_demo.cpp" />
+    <ClCompile Include="sources\imgui_draw.cpp" />
+    <ClCompile Include="sources\imgui_impl_glfw.cpp" />
+    <ClCompile Include="sources\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="sources\imgui_tables.cpp" />
+    <ClCompile Include="sources\imgui_widgets.cpp" />
+    <ClCompile Include="sources\Input.cpp" />
+    <ClCompile Include="sources\Main.cpp" />
+    <ClCompile Include="sources\Physics.cpp" />
+    <ClCompile Include="sources\Renderer.cpp" />
+    <ClCompile Include="sources\Scene.cpp" />
+    <ClCompile Include="sources\Shader.cpp" />
+    <ClCompile Include="sources\Texture.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="includes\Camera.h" />
+    <ClInclude Include="includes\Display.h" />
+    <ClInclude Include="includes\EssentialInlcudes.h" />
+    <ClInclude Include="includes\GameLogic.h" />
+    <ClInclude Include="includes\Graphics.h" />
+    <ClInclude Include="includes\imconfig.h" />
+    <ClInclude Include="includes\imgui.h" />
+    <ClInclude Include="includes\imgui_impl_glfw.h" />
+    <ClInclude Include="includes\imgui_impl_opengl3.h" />
+    <ClInclude Include="includes\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="includes\imgui_internal.h" />
+    <ClInclude Include="includes\imstb_rectpack.h" />
+    <ClInclude Include="includes\imstb_textedit.h" />
+    <ClInclude Include="includes\imstb_truetype.h" />
+    <ClInclude Include="includes\Input.h" />
+    <ClInclude Include="includes\Physics.h" />
+    <ClInclude Include="includes\PreNeededInlcudes.h" />
+    <ClInclude Include="includes\RawSrc.h" />
+    <ClInclude Include="includes\Renderer.h" />
+    <ClInclude Include="includes\Scene.h" />
+    <ClInclude Include="includes\Shader.h" />
+    <ClInclude Include="includes\stb_image.h" />
+    <ClInclude Include="includes\Texture.h" />
+    <ClInclude Include="includes\Types.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
