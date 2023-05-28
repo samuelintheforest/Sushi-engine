@@ -138,9 +138,9 @@ int main()
     glViewport(frameBuffW / 0.8f * 0.2f, 0, frameBuffW, frameBuffH);
     //glEnable(GL_MULTISAMPLE);
 
-    Shader shader(".\\shaders\\main.vert", ".\\shaders\\main.frag", NULL);
-    Shader shader3D(".\\shaders\\exp_3d.vert", ".\\shaders\\exp_3d.frag", NULL);
-    Shader shader3DMultiDraw(".\\shaders\\exp_multi_draw_3d.vert", ".\\shaders\\exp_multi_draw_3d.frag", NULL);
+    Shader shader("shaders/main.vert", "shaders/main.frag", NULL);
+    /*Shader shader3D(".\\shaders\\exp_3d.vert", ".\\shaders\\exp_3d.frag", NULL);
+    Shader shader3DMultiDraw(".\\shaders\\exp_multi_draw_3d.vert", ".\\shaders\\exp_multi_draw_3d.frag", NULL);*/
 
     sushi::SceneDescription world_2d
     {
