@@ -95,10 +95,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\keres\Documents\coding\cpp\box2d\include;</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\keres\Documents\coding\cpp\box2d\bin\bin\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -109,12 +113,18 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <AdditionalIncludeDirectories>C:\Users\keres\Documents\coding\cpp\box2d\include;</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Users\keres\Documents\coding\cpp\box2d\bin\bin\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glfw3.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -123,12 +133,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\keres\Documents\coding\ruby\projects\Sushu_CPP\vendor\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\keres\Documents\coding\cpp\box2d\include;C:\Users\keres\Documents\coding\ruby\projects\Sushu_CPP\vendor\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\keres\Documents\coding\cpp\box2d\bin\bin\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -139,37 +151,20 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;RELEASE_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\keres\Documents\coding\ruby\projects\Sushu_CPP\vendor\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\keres\Documents\coding\cpp\box2d\include;C:\Users\keres\Documents\coding\ruby\projects\Sushu_CPP\vendor\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\keres\Documents\coding\cpp\box2d\bin\bin\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Camera.cpp" />
-    <ClCompile Include="glad.c" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Physics.cpp" />
-    <ClCompile Include="Renderer.cpp" />
-    <ClCompile Include="Scene.cpp" />
-    <ClCompile Include="Shader.cpp" />
-    <ClCompile Include="Texture.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Camera.h" />
-    <ClInclude Include="Physics.h" />
-    <ClInclude Include="PreNeededInlcudes.h" />
-    <ClInclude Include="RawSrc.h" />
-    <ClInclude Include="Renderer.h" />
-    <ClInclude Include="Scene.h" />
-    <ClInclude Include="Shader.h" />
-    <ClInclude Include="stb_image.h" />
-    <ClInclude Include="Texture.h" />
-  </ItemGroup>
   <ItemGroup>
     <None Include="shaders\exp_3d.frag" />
     <None Include="shaders\exp_3d.vert" />
@@ -197,6 +192,53 @@
     <Image Include="assets\images\NPC_test_2.png" />
     <Image Include="assets\images\objects.png" />
     <Image Include="assets\images\Overworld.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="sources\Camera.cpp" />
+    <ClCompile Include="sources\Display.cpp" />
+    <ClCompile Include="sources\GameLogic.cpp" />
+    <ClCompile Include="sources\glad.c" />
+    <ClCompile Include="sources\Graphics.cpp" />
+    <ClCompile Include="sources\imgui.cpp" />
+    <ClCompile Include="sources\imgui_demo.cpp" />
+    <ClCompile Include="sources\imgui_draw.cpp" />
+    <ClCompile Include="sources\imgui_impl_glfw.cpp" />
+    <ClCompile Include="sources\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="sources\imgui_tables.cpp" />
+    <ClCompile Include="sources\imgui_widgets.cpp" />
+    <ClCompile Include="sources\Input.cpp" />
+    <ClCompile Include="sources\Main.cpp" />
+    <ClCompile Include="sources\Physics.cpp" />
+    <ClCompile Include="sources\Renderer.cpp" />
+    <ClCompile Include="sources\Scene.cpp" />
+    <ClCompile Include="sources\Shader.cpp" />
+    <ClCompile Include="sources\Texture.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="includes\Camera.h" />
+    <ClInclude Include="includes\Display.h" />
+    <ClInclude Include="includes\EssentialInlcudes.h" />
+    <ClInclude Include="includes\GameLogic.h" />
+    <ClInclude Include="includes\Graphics.h" />
+    <ClInclude Include="includes\imconfig.h" />
+    <ClInclude Include="includes\imgui.h" />
+    <ClInclude Include="includes\imgui_impl_glfw.h" />
+    <ClInclude Include="includes\imgui_impl_opengl3.h" />
+    <ClInclude Include="includes\imgui_impl_opengl3_loader.h" />
+    <ClInclude Include="includes\imgui_internal.h" />
+    <ClInclude Include="includes\imstb_rectpack.h" />
+    <ClInclude Include="includes\imstb_textedit.h" />
+    <ClInclude Include="includes\imstb_truetype.h" />
+    <ClInclude Include="includes\Input.h" />
+    <ClInclude Include="includes\Physics.h" />
+    <ClInclude Include="includes\PreNeededInlcudes.h" />
+    <ClInclude Include="includes\RawSrc.h" />
+    <ClInclude Include="includes\Renderer.h" />
+    <ClInclude Include="includes\Scene.h" />
+    <ClInclude Include="includes\Shader.h" />
+    <ClInclude Include="includes\stb_image.h" />
+    <ClInclude Include="includes\Texture.h" />
+    <ClInclude Include="includes\Types.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
