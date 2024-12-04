@@ -1,17 +1,19 @@
 #ifndef PRE_NEEDED_INCLUDES
 #define PRE_NEEDED_INCLUDES
 
-#include "imgui.h"
-#include "imgui_impl_glfw.h"
-#include "imgui_impl_opengl3.h"
 
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
-#include <box2d/box2d.h>
+#include "../../../vendor/include/glad/glad.h"
+#include "../../../vendor/include/GLFW/glfw3.h"
+#include "../../../vendor/include/glm/glm.hpp"
+#include "../../../vendor/include/glm/gtc/matrix_transform.hpp"
+#include "../../../vendor/include/glm/gtc/type_ptr.hpp"
+#include "../../../vendor/include/box2d/box2d.h"
+
+//#include "../../../vendor/include/imgui/imgui.h"
+//#include "../../../vendor/include/imgui/backends/imgui_impl_glfw.h"
+//#include "../../../vendor/include/imgui/backends/imgui_impl_opengl3.h"
+
 
 
 #include "RawSrc.h"

@@ -91,23 +91,24 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level1</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\keres\Documents\coding\cpp\box2d\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\keres\Documents\coding\cpp\box2d\bin\bin\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\keres\Documents\coding\cpp\Sushi-engine\vendor\lib\GLFW\Debug;C:\Users\keres\Documents\coding\cpp\Sushi-engine\vendor\lib\box2d\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level1</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
@@ -115,7 +116,8 @@
       <ConformanceMode>true</ConformanceMode>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
-      <AdditionalIncludeDirectories>C:\Users\keres\Documents\coding\cpp\box2d\include;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
@@ -123,35 +125,35 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>C:\Users\keres\Documents\coding\cpp\box2d\bin\bin\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\keres\Documents\coding\cpp\Sushi-engine\vendor\lib\GLFW\Debug;C:\Users\keres\Documents\coding\cpp\Sushi-engine\vendor\lib\box2d\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level1</WarningLevel>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\keres\Documents\coding\cpp\box2d\include;C:\Users\keres\Documents\coding\ruby\projects\Sushu_CPP\vendor\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\keres\Documents\coding\ruby\projects\Sushu_CPP\vendor\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>glfw3.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\keres\Documents\coding\cpp\box2d\bin\bin\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\keres\Documents\coding\cpp\Sushi-engine\vendor\lib\GLFW\Debug;C:\Users\keres\Documents\coding\cpp\Sushi-engine\vendor\lib\box2d\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level1</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;RELEASE_MODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\keres\Documents\coding\cpp\box2d\include;C:\Users\keres\Documents\coding\ruby\projects\Sushu_CPP\vendor\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\keres\Documents\coding\ruby\projects\Sushu_CPP\vendor\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <EnableFiberSafeOptimizations>true</EnableFiberSafeOptimizations>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -162,7 +164,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>glfw3.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\keres\Documents\coding\cpp\box2d\bin\bin\Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\keres\Documents\coding\cpp\Sushi-engine\vendor\lib\GLFW\Debug;C:\Users\keres\Documents\coding\cpp\Sushi-engine\vendor\lib\box2d\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -199,13 +201,11 @@
     <ClCompile Include="sources\GameLogic.cpp" />
     <ClCompile Include="sources\glad.c" />
     <ClCompile Include="sources\Graphics.cpp" />
-    <ClCompile Include="sources\imgui.cpp" />
-    <ClCompile Include="sources\imgui_demo.cpp" />
-    <ClCompile Include="sources\imgui_draw.cpp" />
-    <ClCompile Include="sources\imgui_impl_glfw.cpp" />
-    <ClCompile Include="sources\imgui_impl_opengl3.cpp" />
-    <ClCompile Include="sources\imgui_tables.cpp" />
-    <ClCompile Include="sources\imgui_widgets.cpp" />
+    <ClCompile Include="sources\imgui\imgui.cpp" />
+    <ClCompile Include="sources\imgui\imgui_demo.cpp" />
+    <ClCompile Include="sources\imgui\imgui_draw.cpp" />
+    <ClCompile Include="sources\imgui\imgui_tables.cpp" />
+    <ClCompile Include="sources\imgui\imgui_widgets.cpp" />
     <ClCompile Include="sources\Input.cpp" />
     <ClCompile Include="sources\Main.cpp" />
     <ClCompile Include="sources\Physics.cpp" />

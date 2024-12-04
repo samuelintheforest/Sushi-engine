@@ -5,7 +5,7 @@
 #include <algorithm>
 #include <array>
 #include <functional>
-#include <glm/glm.hpp>
+#include "../../../vendor/include/glm/glm.hpp"
 
 
 namespace sushi {
