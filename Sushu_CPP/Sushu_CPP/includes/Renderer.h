@@ -2,9 +2,9 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
+#include "../../../vendor/include/glm/glm.hpp"
+#include "../../../vendor/include/glm/gtc/matrix_transform.hpp"
+#include "../../../vendor/include/glm/gtc/type_ptr.hpp"
 //#include <glad/glad.h>
 #include <vector>
 #include <iostream>

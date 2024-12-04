@@ -1,12 +1,10 @@
 #ifndef GRAPHICS_H
 #define GRAPHICS_H
 
-#include "EssentialInlcudes.h"
 
-// A glad.h tartalmazza az opengl-hez szükséges függvénymutatókat -> cross-platform
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-
+#include "../../../vendor/include/glad/glad.h"
+#include "../../../vendor/include/GLFW/glfw3.h"
+#include <iostream>
 
 namespace sushi
 {
@@ -18,7 +16,7 @@ namespace sushi
 		~Graphics();
 
 	private:
-		void loadGraphicalLib();
+		void loadGraphicfuncsPtr();
 	};
 }
 

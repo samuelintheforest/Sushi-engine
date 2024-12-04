@@ -3,7 +3,7 @@
 
 sushi::Graphics::Graphics()
 {
-    loadGraphicalLib();
+    loadGraphicfuncsPtr();
 }
 
 sushi::Graphics::~Graphics()
@@ -11,7 +11,7 @@ sushi::Graphics::~Graphics()
 
 }
 
-void sushi::Graphics::loadGraphicalLib()
+void sushi::Graphics::loadGraphicfuncsPtr()
 {
     // Make opengl context
     

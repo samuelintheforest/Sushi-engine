@@ -1,8 +1,10 @@
 #ifndef DISPLAY_H
 #define DISPLAY_H
 
-#include "EssentialInlcudes.h"
-#include <GLFW/glfw3.h>
+#include "../../../vendor/include/glad/glad.h"
+#include "../../../vendor/include/GLFW/glfw3.h"
+
+#include <iostream>
 
 namespace sushi
 {
@@ -11,7 +13,7 @@ namespace sushi
 	public:
 		// === Publikus függvények ===
 		// A Display osztály konstruktora / destruktora
-		Display(u32 screenW, u32 screenH, binary fullscreen = false, binary vsync = true);
+		Display(uint32_t screenW, uint32_t screenH, bool fullscreen = false, bool vsync = true);
 		~Display(void);
 
 		// Ablak állapot változások
@@ -21,13 +23,13 @@ namespace sushi
 		void disableWindowVsync();
 
 		// Getterek és szetterek helyi változókhoz
-		u32 getMonitorHz();
-		u32 getMonitorWidth();
-		u32 getMonitorHeight();
+		uint32_t getMonitorHz();
+		uint32_t getMonitorWidth();
+		uint32_t getMonitorHeight();
 		std::string getWindowTitle();
 		void setWindowTitle(const std::string &titleName);
-		void setWindowShouldClose(binary value);
-		binary getWindowShouldClose();
+		void setWindowShouldClose(bool value);
+		bool getWindowShouldClose();
 
 
 		// === Member változók - publikus osztélyváltozók ===
@@ -43,13 +45,13 @@ namespace sushi
 		
 
 		// Field változók - helyi változók
-		binary fullscren;
-		binary vsync;
-		u32 width;
-		u32 height;
-		u32 monitorWidth;
-		u32 monitorHeight;
-		u32 hz;
+		bool fullscren;
+		bool vsync;
+		uint32_t width;
+		uint32_t height;
+		uint32_t monitorWidth;
+		uint32_t monitorHeight;
+		uint32_t hz;
 		std::string windowTitle;
 	};
 }

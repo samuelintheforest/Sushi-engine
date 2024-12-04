@@ -1,7 +1,7 @@
 #include "../includes/Display.h"
 
 
-sushi::Display::Display(u32 screenW, u32 screenH, binary fullscreen, binary vsync)
+sushi::Display::Display(uint32_t screenW, uint32_t screenH, bool fullscreen, bool vsync)
 {
 	this->fullscren = fullscreen;
 	this->vsync = vsync;
@@ -49,7 +49,7 @@ void sushi::Display::initGLFW()
 	monitorHeight = mode->height;
 	hz = mode->refreshRate;
 
-	//std::cout << monitorWidth << ", " << monitorHeight << std::endl;
+	std::cout << monitorWidth << ", " << monitorHeight << std::endl;
 
 	
 }
@@ -136,19 +136,19 @@ void sushi::Display::disableWindowVsync()
 	}
 }
 
-sushi::u32 sushi::Display::getMonitorHz()
+uint32_t sushi::Display::getMonitorHz()
 {
-	return u32(hz);
+	return hz;
 }
 
-sushi::u32 sushi::Display::getMonitorWidth()
+uint32_t sushi::Display::getMonitorWidth()
 {
-	return u32(monitorWidth);
+	return monitorWidth;
 }
 
-sushi::u32 sushi::Display::getMonitorHeight()
+uint32_t sushi::Display::getMonitorHeight()
 {
-	return u32(monitorHeight);
+	return monitorHeight;
 }
 
 std::string sushi::Display::getWindowTitle()
@@ -162,7 +162,7 @@ void sushi::Display::setWindowTitle(const std::string& titleName)
 	glfwSetWindowTitle(window, windowTitle.c_str());
 }
 
-void sushi::Display::setWindowShouldClose(binary value)
+void sushi::Display::setWindowShouldClose(bool value)
 {
 	if (value)
 		glfwSetWindowShouldClose(window, 1);
@@ -170,9 +170,9 @@ void sushi::Display::setWindowShouldClose(binary value)
 		glfwSetWindowShouldClose(window, 0);
 }
 
-sushi::binary sushi::Display::getWindowShouldClose()
+bool sushi::Display::getWindowShouldClose()
 {
-	return binary(glfwWindowShouldClose(window));
+	return (bool)glfwWindowShouldClose(window);
 }
 
 
