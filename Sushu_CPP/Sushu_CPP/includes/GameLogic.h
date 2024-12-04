@@ -1,11 +1,13 @@
 #ifndef GAME_LOGIC_H
 #define GAME_LOGIC_H
 
+#include <iostream>
 #include <vector>
-#include "Graphics.h"
-#include "Scene.h"
 #include "Display.h"
+#include "Graphics.h"
 #include "Input.h"
+#include "Scene.h"
+#include "Timer.h"
 
 namespace sushi 
 {
@@ -28,7 +30,7 @@ namespace sushi
 		static Input *InputManager;
 		static Graphics* GraphicsManager;
 		static std::vector<Scene> GameScenes;
-
+		static Timer* TimerManager;
 	};
 }
 

@@ -3,7 +3,7 @@
 GLFWwindow* sushi::Input::WindowPtr = NULL;
 sushi::Display* sushi::Input::DisplayPtr = NULL;
 // Init Joystick avaliability
-sushi::s32 sushi::Input::joystickPresent[16];
+uint32_t sushi::Input::joystickPresent[16];
 
 
 sushi::Input::Input(Display* displayPtr)
@@ -18,7 +18,7 @@ sushi::Input::Input(Display* displayPtr)
 	glfwSetMouseButtonCallback(WindowPtr, (GLFWmousebuttonfun)mouse_button_callback);
 	glfwSetScrollCallback(WindowPtr, (GLFWscrollfun)scroll_callback);
 	glfwSetJoystickCallback((GLFWjoystickfun)joystick_callback);
-	for (int i = 0; i < sizeof(joystickPresent) / sizeof(s32); i++)
+	for (int i = 0; i < sizeof(joystickPresent) / sizeof(uint32_t); i++)
 	{
 		joystickPresent[i] = 0;
 	}
@@ -74,7 +74,7 @@ void sushi::Input::joystick_callback(int jid, int event)
 
 void sushi::Input::check_joysticks_present()
 {
-	for (int i = 0; i < sizeof(joystickPresent) / sizeof(s32); i++)
+	for (int i = 0; i < sizeof(joystickPresent) / sizeof(uint32_t); i++)
 	{
 		joystickPresent[i] = glfwJoystickPresent(i);
 		const char* name = glfwGetJoystickName(i);

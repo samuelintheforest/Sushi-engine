@@ -1,9 +1,8 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-#include "EssentialInlcudes.h"
-#include <GLFW/glfw3.h>
 #include "Display.h"
+
 
 namespace sushi
 {
@@ -20,7 +19,7 @@ namespace sushi
 		~Input();
 		void pollEvents();
 
-		static s32 joystickPresent[16];
+		static uint32_t joystickPresent[16];
 		
 	private:
 		// Keyboard events callback

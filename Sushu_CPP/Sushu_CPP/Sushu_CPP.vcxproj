@@ -196,39 +196,20 @@
     <Image Include="assets\images\Overworld.png" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="sources\Camera.cpp" />
+    <ClCompile Include="includes\Timer.cpp" />
     <ClCompile Include="sources\Display.cpp" />
     <ClCompile Include="sources\GameLogic.cpp" />
     <ClCompile Include="sources\glad.c" />
     <ClCompile Include="sources\Graphics.cpp" />
-    <ClCompile Include="sources\imgui\imgui.cpp" />
-    <ClCompile Include="sources\imgui\imgui_demo.cpp" />
-    <ClCompile Include="sources\imgui\imgui_draw.cpp" />
-    <ClCompile Include="sources\imgui\imgui_tables.cpp" />
-    <ClCompile Include="sources\imgui\imgui_widgets.cpp" />
     <ClCompile Include="sources\Input.cpp" />
     <ClCompile Include="sources\Main.cpp" />
-    <ClCompile Include="sources\Physics.cpp" />
-    <ClCompile Include="sources\Renderer.cpp" />
     <ClCompile Include="sources\Scene.cpp" />
-    <ClCompile Include="sources\Shader.cpp" />
-    <ClCompile Include="sources\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="includes\Camera.h" />
     <ClInclude Include="includes\Display.h" />
-    <ClInclude Include="includes\EssentialInlcudes.h" />
     <ClInclude Include="includes\GameLogic.h" />
     <ClInclude Include="includes\Graphics.h" />
-    <ClInclude Include="includes\imconfig.h" />
-    <ClInclude Include="includes\imgui.h" />
-    <ClInclude Include="includes\imgui_impl_glfw.h" />
-    <ClInclude Include="includes\imgui_impl_opengl3.h" />
-    <ClInclude Include="includes\imgui_impl_opengl3_loader.h" />
-    <ClInclude Include="includes\imgui_internal.h" />
-    <ClInclude Include="includes\imstb_rectpack.h" />
-    <ClInclude Include="includes\imstb_textedit.h" />
-    <ClInclude Include="includes\imstb_truetype.h" />
     <ClInclude Include="includes\Input.h" />
     <ClInclude Include="includes\Physics.h" />
     <ClInclude Include="includes\PreNeededInlcudes.h" />
@@ -238,6 +219,7 @@
     <ClInclude Include="includes\Shader.h" />
     <ClInclude Include="includes\stb_image.h" />
     <ClInclude Include="includes\Texture.h" />
+    <ClInclude Include="includes\Timer.h" />
     <ClInclude Include="includes\Types.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
