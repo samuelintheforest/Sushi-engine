@@ -7,19 +7,25 @@ sushi::Graphics* sushi::GameLogic::GraphicsManager = 0;
 
 void sushi::GameLogic::initGame(void)
 {
-	TimerManager = new sushi::Timer();
-	DisplayManager = new sushi::Display(800, 800, false, true);
-	InputManager = new sushi::Input(DisplayManager);
-	GraphicsManager = new sushi::Graphics();
+	sushi::GameLogic::TimerManager = new sushi::Timer();
+	sushi::GameLogic::DisplayManager = new sushi::Display(800, 800, false, true);
+	sushi::GameLogic::InputManager = new sushi::Input(DisplayManager);
+	sushi::GameLogic::GraphicsManager = new sushi::Graphics();
 	
 }
 
 void sushi::GameLogic::endGame(void)
 {
-	delete DisplayManager;
-	delete InputManager;
-	delete GraphicsManager;
-	delete TimerManager;
+	delete sushi::GameLogic::DisplayManager;
+	delete sushi::GameLogic::InputManager;
+	delete sushi::GameLogic::GraphicsManager;
+	delete sushi::GameLogic::TimerManager;
+}
+
+void sushi::GameLogic::updateState()
+{
+	/* Update the input events */
+	sushi::GameLogic::InputManager->pollEvents();
 }
 
 

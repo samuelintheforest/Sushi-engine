@@ -9,18 +9,16 @@ int main()
 	
 	while(!GameLogic::DisplayManager->getWindowShouldClose())
 	{
-		/* Poll the events */
-		GameLogic::InputManager->pollEvents();
 
-		uint32_t tick = GameLogic::TimerManager->getTimeMiliSec();
-		std::cout << "Ellapsed_time: " << tick << "\n";
+		/* Poll the events, update state */
+		GameLogic::updateState();
+
 
 		/* Main logic */
 		/* TODO */
 	}
 
 	GameLogic::endGame();
-
 }
 
 //// HELPER FUNCTION: CENTERS THE SCREEN
