@@ -210,6 +210,7 @@
     <ClCompile Include="sources\glad.c" />
     <ClCompile Include="sources\Graphics.cpp" />
     <ClCompile Include="sources\Input.cpp" />
+    <ClCompile Include="sources\Layer.cpp" />
     <ClCompile Include="sources\Main.cpp" />
     <ClCompile Include="sources\Scene.cpp" />
     <ClCompile Include="sources\TimerThread.cpp" />
@@ -221,6 +222,7 @@
     <ClInclude Include="includes\GameLogic.h" />
     <ClInclude Include="includes\Graphics.h" />
     <ClInclude Include="includes\Input.h" />
+    <ClInclude Include="includes\Layer.h" />
     <ClInclude Include="includes\Physics.h" />
     <ClInclude Include="includes\PreNeededInlcudes.h" />
     <ClInclude Include="includes\RawSrc.h" />
