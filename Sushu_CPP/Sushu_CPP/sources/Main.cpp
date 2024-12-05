@@ -1,11 +1,30 @@
 #include "..\includes\GameLogic.h"
+#include "..\includes\Rectangle.h"
+#include "..\includes\Layer.h"
+#include "..\includes\FilledRectColorFix.h"
 
 using namespace sushi;
 
 int main()
 {
 	GameLogic::initGame();
+	Rectangle fixWalls[10];
+	Layer sceneLayer[3];
+	FixedRectColorFix player[10];
 
+	for (auto& val : fixWalls)
+	{
+		GameLogic::addtoScene(&val);
+	}
+	for (auto& val : sceneLayer)
+	{
+		GameLogic::addtoScene(&val);
+	}
+	for (auto& val : player)
+	{
+		GameLogic::addtoScene(&val);
+	}
+	
 	
 	while(!GameLogic::DisplayManager->getWindowShouldClose())
 	{
@@ -16,6 +35,7 @@ int main()
 
 		/* Main logic */
 		/* TODO */
+		GameLogic::renderState();
 	}
 
 	GameLogic::endGame();

@@ -9,6 +9,8 @@
 #include "Scene.h"
 #include "Timer.h"
 #include "TimerThread.h"
+#include "Entity.h"
+
 
 namespace sushi 
 {
@@ -27,11 +29,13 @@ namespace sushi
 		static void initGame();
 		static void endGame();
 		static void updateState();
+		static void renderState();
+		static const void addtoScene(Entity* entity);
 
 		static Display *DisplayManager;
 		static Input *InputManager;
 		static Graphics* GraphicsManager;
-		static std::vector<Scene> GameScenes;
+		static Scene* GameScene;
 		static Timer* TimerManager;
 		
 	};

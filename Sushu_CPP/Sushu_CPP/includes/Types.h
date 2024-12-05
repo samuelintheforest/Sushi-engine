@@ -29,29 +29,31 @@ namespace sushi
 	// the boolean type
 	typedef bool binary;
 
-	struct IVec2 
+	typedef struct
 	{ 
 		uint32_t x; 
 		uint32_t y;
-	};
-	struct IVec3
+	} IVec2;
+
+	typedef struct 
 	{
 		uint32_t x;
 		uint32_t y;
 		uint32_t z;
-	};
-	struct Vec2
+	} IVec3;
+
+	typedef struct
 	{
 		float x;
 		float y;
-	};
+	} Vec2;
 
-	struct Vec3
+	typedef struct
 	{
 		float x;
 		float y;
 		float z;
-	};
+	} Vec3;
 
 
 

@@ -3,7 +3,7 @@
 
 sushi::Graphics::Graphics()
 {
-    loadGraphicfuncsPtr();
+    loadSGXfuncsPtr();
 }
 
 sushi::Graphics::~Graphics()
@@ -11,7 +11,22 @@ sushi::Graphics::~Graphics()
 
 }
 
-void sushi::Graphics::loadGraphicfuncsPtr()
+inline void sushi::Graphics::enableSGXDepth()
+{
+    glEnable(GL_DEPTH);
+}
+
+inline void sushi::Graphics::disableSGXDepth()
+{
+    glDisable(GL_DEPTH);
+}
+
+inline void sushi::Graphics::setSGXViewport(uint32_t x, uint32_t y, uint32_t w, uint32_t h)
+{
+    glViewport(x, y, w, h);
+}
+
+void sushi::Graphics::loadSGXfuncsPtr()
 {
     // Make opengl context
     

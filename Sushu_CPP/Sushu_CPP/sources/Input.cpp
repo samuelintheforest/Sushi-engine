@@ -18,12 +18,11 @@ sushi::Input::Input(Display* displayPtr)
 	glfwSetMouseButtonCallback(WindowPtr, (GLFWmousebuttonfun)mouse_button_callback);
 	glfwSetScrollCallback(WindowPtr, (GLFWscrollfun)scroll_callback);
 	glfwSetJoystickCallback((GLFWjoystickfun)joystick_callback);
+
 	for (int i = 0; i < sizeof(joystickPresent) / sizeof(uint32_t); i++)
 	{
 		joystickPresent[i] = 0;
 	}
-
-
 	check_joysticks_present();
 	
 }

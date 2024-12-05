@@ -1,7 +1,7 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-#include <cstdint>
+#include <iostream>
 #include "Types.h"
 
 namespace sushi
@@ -14,11 +14,11 @@ namespace sushi
 		~Entity();
 
 		virtual void draw();
-
-		struct IVec3 pos;
-
+		
+	protected:
+		IVec3 pos;
 	private:
-
+		
 	};
 }
 

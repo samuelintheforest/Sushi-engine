@@ -206,12 +206,14 @@
     <ClCompile Include="includes\Timer.cpp" />
     <ClCompile Include="sources\Display.cpp" />
     <ClCompile Include="sources\Entity.cpp" />
+    <ClCompile Include="sources\FilledRectColorFix.cpp" />
     <ClCompile Include="sources\GameLogic.cpp" />
     <ClCompile Include="sources\glad.c" />
     <ClCompile Include="sources\Graphics.cpp" />
     <ClCompile Include="sources\Input.cpp" />
     <ClCompile Include="sources\Layer.cpp" />
     <ClCompile Include="sources\Main.cpp" />
+    <ClCompile Include="sources\Rectangle.cpp" />
     <ClCompile Include="sources\Scene.cpp" />
     <ClCompile Include="sources\TimerThread.cpp" />
   </ItemGroup>
@@ -219,6 +221,7 @@
     <ClInclude Include="includes\Camera.h" />
     <ClInclude Include="includes\Display.h" />
     <ClInclude Include="includes\Entity.h" />
+    <ClInclude Include="includes\FilledRectColorFix.h" />
     <ClInclude Include="includes\GameLogic.h" />
     <ClInclude Include="includes\Graphics.h" />
     <ClInclude Include="includes\Input.h" />
@@ -226,6 +229,7 @@
     <ClInclude Include="includes\Physics.h" />
     <ClInclude Include="includes\PreNeededInlcudes.h" />
     <ClInclude Include="includes\RawSrc.h" />
+    <ClInclude Include="includes\Rectangle.h" />
     <ClInclude Include="includes\Renderer.h" />
     <ClInclude Include="includes\Scene.h" />
     <ClInclude Include="includes\Shader.h" />
