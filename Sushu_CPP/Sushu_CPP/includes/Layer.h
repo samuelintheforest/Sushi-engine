@@ -14,7 +14,7 @@ namespace sushi
 		Layer();
 		~Layer();
 
-		void draw() override;
+		void draw();
 
 	private:
 

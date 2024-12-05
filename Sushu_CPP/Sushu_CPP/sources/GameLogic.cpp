@@ -37,7 +37,7 @@ void sushi::GameLogic::renderState()
 	sushi::GameLogic::GameScene->drawScene();
 }
 
-const void sushi::GameLogic::addtoScene(Entity* entity)
+void sushi::GameLogic::addtoScene(Entity* entity)
 {
 	sushi::GameLogic::GameScene->addNewMember(entity);
 }

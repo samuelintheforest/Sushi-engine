@@ -17,7 +17,7 @@ namespace sushi
 
 		inline void enableSGXDepth();
 		inline void disableSGXDepth();
-		inline void setSGXViewport(uint32_t x, uint32_t y, uint32_t w, uint32_t h);
+		inline void setSGXViewport(int32_t x, int32_t y, int32_t w, int32_t h);
 
 	private:
 		void loadSGXfuncsPtr();

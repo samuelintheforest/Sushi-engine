@@ -30,7 +30,7 @@ namespace sushi
 		static void endGame();
 		static void updateState();
 		static void renderState();
-		static const void addtoScene(Entity* entity);
+		static void addtoScene(Entity* entity);
 
 		static Display *DisplayManager;
 		static Input *InputManager;

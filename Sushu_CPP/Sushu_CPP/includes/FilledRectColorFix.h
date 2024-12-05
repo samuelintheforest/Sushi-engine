@@ -2,17 +2,23 @@
 #define FILLED_RECT_COLOR_FIX_H
 
 #include "Rectangle.h"
+#include <sstream>
 
 namespace sushi
 {
 
-	class FixedRectColorFix : public Rectangle
+	class FilledRectColorFix : public Rectangle
 	{
 	public:
-		FixedRectColorFix();
-		~FixedRectColorFix();
+		FilledRectColorFix();
+		FilledRectColorFix(IVec4 args, IVec4 color, int32_t z );
+		~FilledRectColorFix();
 
-		void draw() override;
+		const std::string getDetails();
+
+		void draw();
+	protected:
+		IVec4 color;
 	private:
 		
 	};

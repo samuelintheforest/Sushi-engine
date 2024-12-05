@@ -28,7 +28,7 @@ namespace sushi {
 		~Scene();
 		
 		void drawScene();
-		const void addNewMember(Entity* entity);
+		void addNewMember(Entity* entity);
 
 	private:
 		std::vector<Entity*> sceneEntities;

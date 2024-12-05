@@ -20,7 +20,8 @@ void sushi::Scene::drawScene()
 }
 
 // /*Adding New Entity members to the scene*/
-const void sushi::Scene::addNewMember(Entity* entity)
+void sushi::Scene::addNewMember(Entity* entity)
 {
 	this->sceneEntities.push_back(entity);
+	std::cout << sceneEntities.size() << std::endl;
 }

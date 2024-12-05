@@ -31,16 +31,24 @@ namespace sushi
 
 	typedef struct
 	{ 
-		uint32_t x; 
-		uint32_t y;
+		int32_t x; 
+		int32_t y;
 	} IVec2;
 
 	typedef struct 
 	{
-		uint32_t x;
-		uint32_t y;
-		uint32_t z;
+		int32_t x;
+		int32_t y;
+		int32_t z;
 	} IVec3;
+
+	typedef struct
+	{
+		int32_t x;
+		int32_t y;
+		int32_t z;
+		int32_t w;
+	} IVec4;
 
 	typedef struct
 	{
@@ -54,6 +62,14 @@ namespace sushi
 		float y;
 		float z;
 	} Vec3;
+
+	typedef struct
+	{
+		float x;
+		float y;
+		float z;
+		float w;
+	} Vec4;
 
 
 

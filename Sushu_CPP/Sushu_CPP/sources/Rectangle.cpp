@@ -1,26 +1,23 @@
 #include "../includes/Rectangle.h"
 
-sushi::Rectangle::Rectangle()
+sushi::Rectangle::Rectangle() : Entity()
 {
-	this->pos = { 0, 0, 0 };
 	this->dim = { 0, 0 };
 }
 
-sushi::Rectangle::Rectangle(uint32_t x, uint32_t y, uint32_t z, uint32_t w, uint32_t h)
+sushi::Rectangle::Rectangle(int32_t x, int32_t y, int32_t z, int32_t w, int32_t h) : Entity(x, y, z)
 {
-	this->pos = { x, y, z };
 	this->dim = { w, h };
 }
 
-sushi::Rectangle::Rectangle(IVec3 pos, IVec2 dim)
+sushi::Rectangle::Rectangle(IVec3 pos, IVec2 dim) : Entity(pos.x, pos.y, pos.z)
 {
-	this->pos = pos;
 	this->dim = dim;
 }
 
 sushi::Rectangle::~Rectangle()
 {
-
+	/*DESTROY OBJ*/
 }
 
 void sushi::Rectangle::draw()

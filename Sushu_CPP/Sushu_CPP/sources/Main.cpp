@@ -8,23 +8,8 @@ using namespace sushi;
 int main()
 {
 	GameLogic::initGame();
-	Rectangle fixWalls[10];
-	Layer sceneLayer[3];
-	FixedRectColorFix player[10];
+	FilledRectColorFix rect = { { 3, 32, 45, 10 }, { 122,10,234, 255 }, 1 };
 
-	for (auto& val : fixWalls)
-	{
-		GameLogic::addtoScene(&val);
-	}
-	for (auto& val : sceneLayer)
-	{
-		GameLogic::addtoScene(&val);
-	}
-	for (auto& val : player)
-	{
-		GameLogic::addtoScene(&val);
-	}
-	
 	
 	while(!GameLogic::DisplayManager->getWindowShouldClose())
 	{
@@ -32,7 +17,7 @@ int main()
 		/* Poll the events, update state */
 		GameLogic::updateState();
 
-
+		std::cout << rect.getDetails() << std::endl;
 		/* Main logic */
 		/* TODO */
 		GameLogic::renderState();
