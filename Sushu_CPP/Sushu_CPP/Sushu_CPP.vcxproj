@@ -107,7 +107,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\Users\keres\Documents\coding\cpp\Sushi-engine\vendor\lib\GLFW\Debug;C:\Users\keres\Documents\coding\cpp\Sushi-engine\vendor\lib\box2d\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>glfw3.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;box2d.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -147,7 +147,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;box2d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;box2d.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>C:\Users\keres\Documents\coding\cpp\Sushi-engine\vendor\lib\GLFW\Debug;C:\Users\keres\Documents\coding\cpp\Sushi-engine\vendor\lib\box2d\Debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -220,7 +220,7 @@
     <ClCompile Include="sources\Main.cpp" />
     <ClCompile Include="sources\Rectangle.cpp" />
     <ClCompile Include="sources\Scene.cpp" />
-    <ClCompile Include="sources\Shader.cpp" />
+    <ClCompile Include="sources\GLShader.cpp" />
     <ClCompile Include="sources\TimerThread.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -241,7 +241,7 @@
     <ClInclude Include="includes\Rectangle.h" />
     <ClInclude Include="includes\Renderer.h" />
     <ClInclude Include="includes\Scene.h" />
-    <ClInclude Include="includes\Shader.h" />
+    <ClInclude Include="includes\GLShader.h" />
     <ClInclude Include="includes\stb_image.h" />
     <ClInclude Include="includes\Texture.h" />
     <ClInclude Include="includes\Timer.h" />

@@ -16,7 +16,7 @@ sushi::Display::Display(uint32_t screenW, uint32_t screenH, bool fullscreen, boo
 	createWindow();
 
 	// Make ontext current
-	glfwMakeContextCurrent(window);
+	
 
 }
 

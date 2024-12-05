@@ -97,9 +97,6 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="sources\glad.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="sources\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -145,7 +142,10 @@
     <ClCompile Include="sources\Rectangle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="sources\Shader.cpp">
+    <ClCompile Include="sources\GLShader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sources\glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -168,7 +168,7 @@
     <ClInclude Include="includes\Scene.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="includes\Shader.h">
+    <ClInclude Include="includes\GLShader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="includes\stb_image.h">

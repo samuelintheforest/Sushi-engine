@@ -2,15 +2,25 @@
 #include "..\includes\Rectangle.h"
 #include "..\includes\Layer.h"
 #include "..\includes\FilledRectColorFix.h"
+#include "..\includes\Types.h"
 
 using namespace sushi;
 
 int main()
 {
-	GameLogic::initGame();
-	FilledRectColorFix rect = { { 3, 32, 45, 10 }, { 122,10,234, 255 }, 1 };
+	IVec3 green = { 99, 219, 105 };
 
-	
+	GameLogic::initGame();
+
+
+	FilledRectColorFix rect = { { 300, 320, 100, 70 }, { green, 255 }, 1 };
+	Mat4 model = Mat4();
+	Mat4 view = Mat4();
+	Mat4 proj = glm::orthoRH(0.0f, (float)800, (float)800, 0.0f, -65535.f, 65535.f);
+
+	GameLogic::GraphicsManager->setSGXViewport(0, 0, 800, 800);
+	GameLogic::GraphicsManager->setSGXUniformMatrices(model, view, proj);
+	GameLogic::GraphicsManager->setUpSGXVertexMisc();
 	while(!GameLogic::DisplayManager->getWindowShouldClose())
 	{
 

@@ -1,21 +1,18 @@
 #version 330 core
 
 layout (location = 0) in vec3 aPos;
-layout (location = 1) in vec3 aCol;
+layout (location = 1) in vec4 aCol;
 
-out vec4 vertex_color;
-out vec4 vertex_pos;
-out mat4 transformMat;
+out vec4 vColor;
 
 uniform mat4 projection;
 uniform mat4 camera;
+uniform mat4 model;
 
 void main()
 {
-  vertex_color = vec4(aCol.xyz, 1.0);
-  vertex_pos = projection * camera * vec4(aPos, 1.0);
-  transformMat = projection * camera;
-  gl_Position = vertex_pos;
+  vColor = aCol;
+  gl_Position = projection * camera * model * vec4(aPos, 1.0);
 }
 
 

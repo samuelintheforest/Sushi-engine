@@ -19,9 +19,9 @@ namespace sushi
 		
 	protected:
 		IVec3 pos;
-		
+		virtual void addElement();
 	private:
-		inline void addElement();
+		
 	};
 }
 

@@ -17,7 +17,7 @@ namespace sushi
 		void draw();
 	protected:
 		IVec2 dim;
-
+		void addElement();
 	private:
 		
 	};

@@ -7,6 +7,7 @@ Egy header fájl típusok definiálására
 
 #include <cstdint>
 #include "../../../vendor/include/glm/glm.hpp"
+#include "../../../vendor/include/glm/gtc/matrix_transform.hpp"
 
 namespace sushi
 {
@@ -41,6 +42,20 @@ namespace sushi
 	typedef glm::mat2 Mat2;
 	typedef glm::mat3 Mat3;
 	typedef glm::mat4 Mat4;
+
+	/* Description to get for FilledRectColorFix */
+	typedef struct
+	{
+		int32_t x;
+		int32_t y;
+		int32_t z;
+		int32_t w;
+		int32_t h;
+		int32_t r;
+		int32_t g;
+		int32_t b;
+		int32_t a;
+	} FilledRectColorFixDesc;
 
 }
 

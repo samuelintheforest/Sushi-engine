@@ -2,11 +2,10 @@
 #define FILLED_RECT_COLOR_FIX_H
 
 #include "Rectangle.h"
-#include <sstream>
+#include "Types.h"
 
 namespace sushi
 {
-
 	class FilledRectColorFix : public Rectangle
 	{
 	public:
@@ -14,13 +13,12 @@ namespace sushi
 		FilledRectColorFix(IVec4 args, IVec4 color, int32_t z );
 		~FilledRectColorFix();
 
-		const std::string getDetails();
-
+		void getDesc(FilledRectColorFixDesc& rectDesc);
 		void draw();
 	protected:
 		IVec4 color;
 	private:
-		
+		void addElement();
 	};
 
 

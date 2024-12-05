@@ -1,13 +1,16 @@
 #include "../includes/FilledRectColorFix.h"
+#include "../includes/GameLogic.h"
 
 sushi::FilledRectColorFix::FilledRectColorFix() : Rectangle()
 {
 	this->color = { 0,0,0,0 };
+	this->addElement();
 }
 
-sushi::FilledRectColorFix::FilledRectColorFix(IVec4 args, IVec4 color, int32_t z) : Rectangle(args.x, args.y, args.z, args.w, z)
+sushi::FilledRectColorFix::FilledRectColorFix(IVec4 args, IVec4 color, int32_t z) : Rectangle(args.x, args.y, z, args.z, args.w)
 {
 	this->color = color;
+	this->addElement();
 }
 
 sushi::FilledRectColorFix::~FilledRectColorFix()
@@ -15,14 +18,34 @@ sushi::FilledRectColorFix::~FilledRectColorFix()
 
 }
 
-const std::string sushi::FilledRectColorFix::getDetails()
+void sushi::FilledRectColorFix::getDesc(FilledRectColorFixDesc& rectDesc)
 {
-	std::stringstream ss;
-	ss << "x:" << this->pos.x << " y: " << this->pos.y << " z: " << this->pos.z << " r: " << this->color.x << " g: " << this->color.y << " b: " << this->color.z << " w: " << this->color.w;
-	return std::string(ss.str());
+	rectDesc = {
+		this->pos.x,
+		this->pos.y,
+		this->pos.z,
+		this->dim.x,
+		this->dim.y,
+		this->color.x,
+		this->color.y,
+		this->color.z,
+		this->color.w
+	};
 }
+
 
 void sushi::FilledRectColorFix::draw()
 {
 	//std::cout << "Draw: from FilledRectColorFix class" << std::endl;
 }
+
+void sushi::FilledRectColorFix::addElement()
+{
+	FilledRectColorFixDesc tmpRect;
+	this->getDesc(tmpRect);
+	sushi::GameLogic::GraphicsManager->addNewfixFilledRect(&tmpRect);
+
+	std::cout << "Added: from FilledRectColorFix class" << std::endl;
+}
+
+

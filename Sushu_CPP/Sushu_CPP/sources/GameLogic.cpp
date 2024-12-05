@@ -10,8 +10,13 @@ void sushi::GameLogic::initGame(void)
 {
 	sushi::GameLogic::TimerManager = new sushi::Timer();
 	sushi::GameLogic::DisplayManager = new sushi::Display(800, 800, false, true);
+	glfwMakeContextCurrent(DisplayManager->window);
+	// glad: loads the OpenGL function pointers
+// ---------------------------------------
+
 	sushi::GameLogic::InputManager = new sushi::Input(DisplayManager);
 	sushi::GameLogic::GraphicsManager = new sushi::Graphics();
+	//sushi::GameLogic::GraphicsManager->clearSGXScreen(122, 122, 122, 255);
 	sushi::SceneDescription sd = { sushi::SCENE_2D , 1, 0 };
 	sushi::GameLogic::GameScene = new sushi::Scene(&sd);
 }
@@ -20,6 +25,7 @@ void sushi::GameLogic::endGame(void)
 {
 	delete sushi::GameLogic::GameScene;
 	delete sushi::GameLogic::GraphicsManager;
+	
 	delete sushi::GameLogic::InputManager;
 	delete sushi::GameLogic::DisplayManager;
 	delete sushi::GameLogic::TimerManager;
@@ -29,12 +35,14 @@ void sushi::GameLogic::updateState()
 {
 	/* Update the input events */
 	sushi::GameLogic::InputManager->pollEvents();
+	sushi::GameLogic::GraphicsManager->clearSGXScreen(122.0f, 122.0f, 122.0f, 255.0f);
 }
 
 void sushi::GameLogic::renderState()
 {
 	/* render the game state */
-	sushi::GameLogic::GameScene->drawScene();
+	//sushi::GameLogic::GameScene->drawScene();
+	sushi::GameLogic::GraphicsManager->renderSGXfixFilledRects();
 }
 
 void sushi::GameLogic::addtoScene(Entity* entity)
