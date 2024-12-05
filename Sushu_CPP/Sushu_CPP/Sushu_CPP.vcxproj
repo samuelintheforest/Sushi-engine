@@ -179,8 +179,8 @@
     <None Include="shaders\exp_3d.vert" />
     <None Include="shaders\exp_multi_draw_3d.frag" />
     <None Include="shaders\exp_multi_draw_3d.vert" />
-    <None Include="shaders\FilledRectColorFixShader.fs" />
-    <None Include="shaders\FilledRectColorFixShader.vs" />
+    <None Include="shaders\FilledRectColorFixShader.frag" />
+    <None Include="shaders\FilledRectColorFixShader.vert" />
     <None Include="shaders\main.frag" />
     <None Include="shaders\main.vert" />
     <None Include="shaders\framebuff.fs" />

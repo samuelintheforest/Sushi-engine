@@ -45,7 +45,7 @@ void sushi::Graphics::loadSGXfuncsPtr()
 
 void sushi::Graphics::compileSGXShaders()
 {
-    this->FilledRectColorFixShader = new Shader("shaders\\FilledRectColorFixShader.vs", "shaders\\FilledRectColorFixShader.fs", nullptr);
+    this->FilledRectColorFixShader = new Shader("shaders\\FilledRectColorFixShader.vert", "shaders\\FilledRectColorFixShader.frag", nullptr);
     //this->FilledRectColorDynShader = 0;
     //this->FilledRectTexturedFixShader = 0;
     //this->FilledRectTexturedDynShader = 0;

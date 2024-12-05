@@ -13,8 +13,6 @@ uniform mat4 camera;
 void main()
 {
   vertex_color = vec4(aCol.xyz, 1.0);
-  oTxCoords = aTxCoords;
-  vTxid = tx_id;
   vertex_pos = projection * camera * vec4(aPos, 1.0);
   transformMat = projection * camera;
   gl_Position = vertex_pos;
