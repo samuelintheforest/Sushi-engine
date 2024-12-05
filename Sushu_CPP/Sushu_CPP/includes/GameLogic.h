@@ -8,6 +8,7 @@
 #include "Input.h"
 #include "Scene.h"
 #include "Timer.h"
+#include "TimerThread.h"
 
 namespace sushi 
 {
@@ -23,14 +24,16 @@ namespace sushi
 	class GameLogic
 	{
 	public:
-		static void initGame(void);
-		static void endGame(void);
+		static void initGame();
+		static void endGame();
+		static void updateState();
 
 		static Display *DisplayManager;
 		static Input *InputManager;
 		static Graphics* GraphicsManager;
 		static std::vector<Scene> GameScenes;
 		static Timer* TimerManager;
+		
 	};
 }
 

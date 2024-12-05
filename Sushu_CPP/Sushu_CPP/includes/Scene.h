@@ -4,6 +4,7 @@
 namespace sushi {
 	class Scene 
 	{
+		
 	};
 
 	constexpr char SCENE_2D = 101;
