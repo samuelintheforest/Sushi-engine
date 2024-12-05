@@ -12,6 +12,6 @@ sushi::Layer::~Layer()
 void sushi::Layer::draw()
 {
 	/*TODO*/
-	std::cout << "Draw: from Layer class" << std::endl;
+	//std::cout << "Draw: from Layer class" << std::endl;
 }
 

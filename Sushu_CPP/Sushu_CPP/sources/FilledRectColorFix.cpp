@@ -24,5 +24,5 @@ const std::string sushi::FilledRectColorFix::getDetails()
 
 void sushi::FilledRectColorFix::draw()
 {
-	std::cout << "Draw: from FilledRectColorFix class" << std::endl;
+	//std::cout << "Draw: from FilledRectColorFix class" << std::endl;
 }

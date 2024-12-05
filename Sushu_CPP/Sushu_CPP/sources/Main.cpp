@@ -17,13 +17,14 @@ int main()
 		/* Poll the events, update state */
 		GameLogic::updateState();
 
-		std::cout << rect.getDetails() << std::endl;
+		/*std::cout << rect.getDetails() << std::endl;*/
 		/* Main logic */
 		/* TODO */
 		GameLogic::renderState();
 	}
 
 	GameLogic::endGame();
+
 }
 
 //// HELPER FUNCTION: CENTERS THE SCREEN

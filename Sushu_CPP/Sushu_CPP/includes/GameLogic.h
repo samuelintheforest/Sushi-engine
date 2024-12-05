@@ -10,7 +10,7 @@
 #include "Timer.h"
 #include "TimerThread.h"
 #include "Entity.h"
-
+#include "Types.h"
 
 namespace sushi 
 {

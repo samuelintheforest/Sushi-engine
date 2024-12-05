@@ -20,7 +20,7 @@ sushi::Entity::~Entity()
 
 void sushi::Entity::draw()
 {
-	std::cout << "Render entity" << std::endl;
+	//std::cout << "Render entity" << std::endl;
 }
 
 inline void sushi::Entity::addElement()

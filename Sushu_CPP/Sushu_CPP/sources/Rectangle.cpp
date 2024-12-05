@@ -23,5 +23,5 @@ sushi::Rectangle::~Rectangle()
 void sushi::Rectangle::draw()
 {
 	/*TODO*/
-	std::cout << "Draw: from Rectangle class" << std::endl;
+	//std::cout << "Draw: from Rectangle class" << std::endl;
 }

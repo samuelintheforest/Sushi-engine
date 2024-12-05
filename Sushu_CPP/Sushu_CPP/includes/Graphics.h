@@ -4,6 +4,8 @@
 
 #include "../../../vendor/include/glad/glad.h"
 #include "../../../vendor/include/GLFW/glfw3.h"
+#include "Shader.h"
+
 #include <iostream>
 
 namespace sushi
@@ -21,6 +23,13 @@ namespace sushi
 
 	private:
 		void loadSGXfuncsPtr();
+		void compileSGXShaders();
+
+
+		Shader* FilledRectColorFixShader;
+		Shader* FilledRectColorDynShader;
+		Shader* FilledRectTexturedFixShader;
+		Shader* FilledRectTexturedDynShader;
 	};
 }
 

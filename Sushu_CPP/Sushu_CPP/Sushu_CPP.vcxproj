@@ -179,6 +179,8 @@
     <None Include="shaders\exp_3d.vert" />
     <None Include="shaders\exp_multi_draw_3d.frag" />
     <None Include="shaders\exp_multi_draw_3d.vert" />
+    <None Include="shaders\FilledRectColorFixShader.fs" />
+    <None Include="shaders\FilledRectColorFixShader.vs" />
     <None Include="shaders\main.frag" />
     <None Include="shaders\main.vert" />
     <None Include="shaders\framebuff.fs" />
@@ -206,7 +208,10 @@
     <ClCompile Include="includes\Timer.cpp" />
     <ClCompile Include="sources\Display.cpp" />
     <ClCompile Include="sources\Entity.cpp" />
+    <ClCompile Include="sources\FilledRectColorDyn.cpp" />
     <ClCompile Include="sources\FilledRectColorFix.cpp" />
+    <ClCompile Include="sources\FilledRectTexturedDyn.cpp" />
+    <ClCompile Include="sources\FilledRectTexturedFix.cpp" />
     <ClCompile Include="sources\GameLogic.cpp" />
     <ClCompile Include="sources\glad.c" />
     <ClCompile Include="sources\Graphics.cpp" />
@@ -215,13 +220,17 @@
     <ClCompile Include="sources\Main.cpp" />
     <ClCompile Include="sources\Rectangle.cpp" />
     <ClCompile Include="sources\Scene.cpp" />
+    <ClCompile Include="sources\Shader.cpp" />
     <ClCompile Include="sources\TimerThread.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="includes\Camera.h" />
     <ClInclude Include="includes\Display.h" />
     <ClInclude Include="includes\Entity.h" />
+    <ClInclude Include="includes\FilledRectColorDyn.h" />
     <ClInclude Include="includes\FilledRectColorFix.h" />
+    <ClInclude Include="includes\FilledRectTexturedDyn.h" />
+    <ClInclude Include="includes\FilledRectTexturedFix.h" />
     <ClInclude Include="includes\GameLogic.h" />
     <ClInclude Include="includes\Graphics.h" />
     <ClInclude Include="includes\Input.h" />
@@ -238,6 +247,10 @@
     <ClInclude Include="includes\Timer.h" />
     <ClInclude Include="includes\TimerThread.h" />
     <ClInclude Include="includes\Types.h" />
+    <ClInclude Include="resource.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Sushi_CPP.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
