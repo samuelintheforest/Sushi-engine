@@ -1,9 +1,19 @@
 #ifndef SCENE_H
 #define SCENE_H
 
+#include <vector>
+#include "Types.h"
+
 namespace sushi {
 	class Scene 
 	{
+	public:
+		Scene(struct SceneDescription* sceneDesc);
+		~Scene();
+		
+
+	private:
+		//std::vector<Layer> layers;
 	};
 
 	constexpr char SCENE_2D = 101;

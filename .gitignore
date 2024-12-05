@@ -1,7 +1,12 @@
+/Sushu_CPP/.vs/
 
 
-Sushu_CPP/.vs/
-Sushu_CPP/Sushu_CPP/x64
-Sushu_CPP/Sushu_CPP/assets
+/Sushu_CPP/Sushu_CPP/x64
+
+
+/Sushu_CPP/Sushu_CPP/assets
+
+/Sushu_CPP/x64/Debug/
+# Sushu_CPP/@assets/
 *.zip
-
+# *.exe

@@ -13,14 +13,14 @@ namespace sushi
 		Timer();
 		~Timer();
 		void timerTick();
-		uint32_t getCycleTickMicroSec();
-		uint32_t getTimeSec();
-		uint32_t getTimeMiliSec();
-		uint32_t getTimeMicroSec();
+		uint64_t getCycleTickMicroSec();
+		uint64_t getTimeSec();
+		uint64_t getTimeMiliSec();
+		uint64_t getTimeMicroSec();
 	
 	private:
-		uint32_t timerStart;
-		uint32_t counter;
+		std::chrono::time_point<std::chrono::steady_clock> timerStartus;
+		uint64_t counter;
 	};
 }
 
