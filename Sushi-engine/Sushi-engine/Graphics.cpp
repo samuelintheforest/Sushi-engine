@@ -188,7 +188,7 @@ void sushi::Graphics::setSGXUniformMatrices(const Mat4& model, const Mat4& view,
 
 void sushi::Graphics::renderSGXfixFilledRects()
 {
-    this->FilledRectColorFixShader->use();
+    setSGXUniformMatrices(FilledRectColorFixModelM4, FilledRectColorFixViewM4, FilledRectColorFixProjectionM4);
     glBindVertexArray(fixFilledRectVAO);
     glDrawElements(GL_TRIANGLES, fixFilledRectIndicesCnt, GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);

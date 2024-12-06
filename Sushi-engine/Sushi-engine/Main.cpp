@@ -4,17 +4,29 @@
 #include "FilledRectColorFix.h"
 #include "Types.h"
 
+#include <random>
+
 using namespace sushi;
 
 int main()
 {
 	GameLogic::initGame();
 
-
-	IVec3 green = { 99, 219, 105 };
-	IVec3 purple = { 102, 3, 252 };
-	
-	FilledRectColorFix rect_green = { { 200, 200, 200, 200 }, { green, 255 }, 0 };
+	std::vector<FilledRectColorFix> rects;
+	std::mt19937 gen;
+	std::uniform_int_distribution<> distrColor(40, 255);
+	std::uniform_int_distribution<> distrPos(-100, 800);
+	for (uint16_t cnt = 0; cnt < 10000; cnt++)
+	{
+		Vec2 pos = { distrPos(gen), distrPos(gen) };
+		IVec3 color = { 30, distrColor(gen), 50 };
+		FilledRectColorFix tmoRect = { 
+			{ pos, 20, 20 }, 
+			{ color, 255 }, 
+			0 
+		};
+		rects.push_back(tmoRect);
+	}
 
 	GameLogic::GraphicsManager->setUpSGXVertexMisc();
 	while(!GameLogic::DisplayManager->getWindowShouldClose())
