@@ -8,13 +8,13 @@ using namespace sushi;
 
 int main()
 {
-	IVec3 green = { 99, 219, 105 };
-	IVec3 purple = { 102, 3, 252 };
 	GameLogic::initGame();
 
 
-	FilledRectColorFix rect_green = { { 1, 1, 303, 130 }, { green, 255 }, 1 };
-	FilledRectColorFix rect_blue = { { 150, 70, 303, 130 }, { purple, 255 }, 0 };
+	IVec3 green = { 99, 219, 105 };
+	IVec3 purple = { 102, 3, 252 };
+	
+	FilledRectColorFix rect_green = { { 200, 200, 200, 200 }, { green, 255 }, 0 };
 
 	GameLogic::GraphicsManager->setUpSGXVertexMisc();
 	while(!GameLogic::DisplayManager->getWindowShouldClose())
@@ -22,9 +22,9 @@ int main()
 		/* Poll the events, update state */
 		GameLogic::updateState();
 
-		std::cout << "Ellapsed time since startup: " << GameLogic::TimerManager->getTimeMicroSec() << std::endl;
-		/* Main logic */
-		/* TODO */
+		//std::cout << "Ellapsed time since startup: " << GameLogic::TimerManager->getTimeMicroSec() << std::endl;
+		
+		/* Render using Graphical API - Wait until rendering is finished */
 		GameLogic::renderState();
 	}
 

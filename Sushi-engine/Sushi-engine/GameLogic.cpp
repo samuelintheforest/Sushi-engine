@@ -31,7 +31,7 @@ void sushi::GameLogic::updateState()
 	/* Update the input events */
 	sushi::GameLogic::InputManager->pollEvents();
 	/* Clear screen */
-	sushi::GameLogic::GraphicsManager->clearSGXScreen(0, 0, 0, 255);
+	sushi::GameLogic::GraphicsManager->clearSGXScreen(255, 255, 255, 255);
 }
 
 void sushi::GameLogic::renderState()
