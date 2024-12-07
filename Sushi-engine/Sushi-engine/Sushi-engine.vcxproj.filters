@@ -63,6 +63,9 @@
     <ClCompile Include="TimerThread.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Layer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Display.h">
@@ -112,10 +115,10 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <None Include="shaders\FilledRectColorFixShader.frag">
+    <None Include="shaders\FilledRectColorORTxFixShader.frag">
       <Filter>Resource Files</Filter>
     </None>
-    <None Include="shaders\FilledRectColorFixShader.vert">
+    <None Include="shaders\FilledRectColorORTxFixShader.vert">
       <Filter>Resource Files</Filter>
     </None>
   </ItemGroup>

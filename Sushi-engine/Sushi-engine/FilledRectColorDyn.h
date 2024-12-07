@@ -15,7 +15,7 @@ namespace sushi
 		~FilledRectColorDyn();
 
 
-		void draw();
+		
 	public:
 
 		

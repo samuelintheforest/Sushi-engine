@@ -38,14 +38,11 @@ void sushi::GameLogic::updateState()
 
 void sushi::GameLogic::renderState()
 {
-	/* render the game state */
-	//sushi::GameLogic::GameScene->drawScene();
-	
 	sushi::GameLogic::GraphicsManager->renderSGXfixFilledRects();
 	sushi::GameLogic::InputManager->swapDisplayBuffer();
 	sushi::GameLogic::GraphicsManager->SGXFinishOperation();
 	float cycleTime = (float)(sushi::GameLogic::TimerManager->getTimeMicroSec() - cycleStart) / 1000000.0f;
-	std::cout << "Cycle time (s): " << cycleTime << "s" << "\t\t" << "FPS: " << 1.0f / cycleTime << "\t\t" << std::endl;
+	//std::cout << "Cycle time (s): " << cycleTime << "s" << "\t\t" << "FPS: " << 1.0f / cycleTime << "\t\t" << std::endl;
 }
 
 void sushi::GameLogic::addtoScene(Entity* entity)

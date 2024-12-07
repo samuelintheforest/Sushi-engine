@@ -47,6 +47,13 @@ sushi::Graphics::~Graphics()
     std::cout << "Deleted Graphics" << std::endl;
     delete FilledRectColorFixShader;
 }
+void sushi::Graphics::loadSGXfuncsPtr()
+{
+    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+    {
+        std::cout << "Failed to initialize GLAD" << std::endl;
+    }
+}
 
 void sushi::Graphics::enableSGXDepth()
 {
@@ -62,77 +69,9 @@ void sushi::Graphics::setSGXViewport(int32_t x, int32_t y, int32_t w, int32_t h)
     glViewport(x, y, w, h);
 }
 
-void sushi::Graphics::addNewfixFilledRect(FilledRectColorFixDesc* rect)
-{
-    /* Adding FilledRectColorFix Vertices to Fix Vertices */
-
-    
-
-/* 1. Point: LB */
-    this->fixFilledRectVertices.push_back((float)rect->x);
-    this->fixFilledRectVertices.push_back((float)(rect->y + rect->h));
-    this->fixFilledRectVertices.push_back((float)rect->z);
-    this->fixFilledRectVertices.push_back((float)rect->r * sushi::colorRatio);
-    this->fixFilledRectVertices.push_back((float)rect->g * sushi::colorRatio);
-    this->fixFilledRectVertices.push_back((float)rect->b * sushi::colorRatio);
-    this->fixFilledRectVertices.push_back((float)rect->a * sushi::colorRatio);
-
-    /* 2. Point: LT */
-    this->fixFilledRectVertices.push_back((float)rect->x);
-    this->fixFilledRectVertices.push_back((float)rect->y);
-    this->fixFilledRectVertices.push_back((float)rect->z);
-    this->fixFilledRectVertices.push_back((float)rect->r * sushi::colorRatio);
-    this->fixFilledRectVertices.push_back((float)rect->g * sushi::colorRatio);
-    this->fixFilledRectVertices.push_back((float)rect->b * sushi::colorRatio);
-    this->fixFilledRectVertices.push_back((float)rect->a * sushi::colorRatio);
-
-    /* 3. Point: LT */
-    this->fixFilledRectVertices.push_back((float)(rect->x + rect->w));
-    this->fixFilledRectVertices.push_back((float)(rect->y + rect->h));
-    this->fixFilledRectVertices.push_back((float)rect->z);
-    this->fixFilledRectVertices.push_back((float)rect->r * sushi::colorRatio);
-    this->fixFilledRectVertices.push_back((float)rect->g * sushi::colorRatio);
-    this->fixFilledRectVertices.push_back((float)rect->b * sushi::colorRatio);
-    this->fixFilledRectVertices.push_back((float)rect->a * sushi::colorRatio);
-
-    /* 4. Point: LT */
-    this->fixFilledRectVertices.push_back((float)(rect->x + rect->w));
-    this->fixFilledRectVertices.push_back((float)rect->y);
-    this->fixFilledRectVertices.push_back((float)rect->z);
-    this->fixFilledRectVertices.push_back((float)rect->r * sushi::colorRatio);
-    this->fixFilledRectVertices.push_back((float)rect->g * sushi::colorRatio);
-    this->fixFilledRectVertices.push_back((float)rect->b * sushi::colorRatio);
-    this->fixFilledRectVertices.push_back((float)rect->a * sushi::colorRatio);
-
-    this->fixFilledRectVerticesCnt += 28; /* 7 * 4 = 28 */
-    
-    /* Adding the indices to FixIndices */
-    this->fixFilledRectIndices.push_back(0 + this->fixFilledRectIndicesOffset);
-    this->fixFilledRectIndices.push_back(1 + this->fixFilledRectIndicesOffset);
-    this->fixFilledRectIndices.push_back(2 + this->fixFilledRectIndicesOffset);
-    this->fixFilledRectIndices.push_back(1 + this->fixFilledRectIndicesOffset);
-    this->fixFilledRectIndices.push_back(2 + this->fixFilledRectIndicesOffset);
-    this->fixFilledRectIndices.push_back(3 + this->fixFilledRectIndicesOffset);
-
-    this->fixFilledRectIndicesCnt += 6;
-    this->fixFilledRectIndicesOffset += 4;
-
-    this->fixFilledRectCnt++;
-
-
-}
-
-void sushi::Graphics::loadSGXfuncsPtr()
-{
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-    {
-        std::cout << "Failed to initialize GLAD" << std::endl;
-    }
-}
-
 void sushi::Graphics::compileSGXShaders()
 {
-    this->FilledRectColorFixShader = new GLShader("shaders\\FilledRectColorFixShader.vert", "shaders\\FilledRectColorFixShader.frag", NULL);
+    this->FilledRectColorFixShader = new GLShader("shaders\\FilledRectColorORTxFixShader.vert", "shaders\\FilledRectColorORTxFixShader.frag", NULL);
     //this->FilledRectColorDynShader = 0;
     //this->FilledRectTexturedFixShader = 0;
     //this->FilledRectTexturedDynShader = 0;
@@ -147,18 +86,20 @@ void sushi::Graphics::setUpSGXVertexMisc()
     // Create the required vertex buffer object
     glGenBuffers(1, &fixFilledRectVBO);
     glBindBuffer(GL_ARRAY_BUFFER, fixFilledRectVBO);
-    glBufferData(GL_ARRAY_BUFFER, fixFilledRectVertices.size() * sizeof(GLfloat), &fixFilledRectVertices[0], GL_STATIC_DRAW);
+    glBufferData(GL_ARRAY_BUFFER, fixFilledRectVertices.size() * sizeof(float), &fixFilledRectVertices[0], GL_STATIC_DRAW);
     //GLbitfield flagsForBuffer = GL_DYNAMIC_STORAGE_BIT | GL_MAP_WRITE_BIT | GL_MAP_PERSISTENT_BIT | GL_MAP_COHERENT_BIT;
     //glBufferStorage(GL_ARRAY_BUFFER, 4 * 9 * sizeof(float) * maxBatch, NULL, flagsForBuffer);
 
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 7 * sizeof(float), (void*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
-    glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 7 * sizeof(float), (void*)(3 * sizeof(float)));
+    glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
+    glVertexAttribPointer(2, 1, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(7 * sizeof(float)));
+    glEnableVertexAttribArray(2);
 
     glGenBuffers(1, &fixFilledRectEBO);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, fixFilledRectEBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, fixFilledRectIndices.size() * sizeof(GLuint), &fixFilledRectIndices[0], GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, fixFilledRectIndices.size() * sizeof(uint32_t), &fixFilledRectIndices[0], GL_STATIC_DRAW);
 
     /*
     TODO: Font atlas texture unit set in shader

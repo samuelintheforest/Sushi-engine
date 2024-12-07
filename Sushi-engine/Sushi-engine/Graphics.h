@@ -28,13 +28,21 @@ namespace sushi
 		void enableSGXDepth();
 		void disableSGXDepth();
 		void setSGXViewport(int32_t x, int32_t y, int32_t w, int32_t h);
-
 		void addNewfixFilledRect(FilledRectColorFixDesc* rect);
+
 		void setUpSGXVertexMisc();
 		void setSGXUniformMatrices(const Mat4& model, const Mat4& view, const Mat4& proj);
 		void renderSGXfixFilledRects();
 		void clearSGXScreen(uint8_t r, uint8_t g, uint8_t b, uint8_t w);
 		void SGXFinishOperation();
+
+		/* Containers, Counters, and GLobjects - FilledRectColorFix */
+		std::vector<float> fixFilledRectVertices;
+		std::vector<uint32_t> fixFilledRectIndices;
+		uint32_t fixFilledRectVerticesCnt;
+		uint32_t fixFilledRectIndicesCnt;
+		uint32_t fixFilledRectIndicesOffset;
+		uint32_t fixFilledRectCnt;
 
 	private:
 		void loadSGXfuncsPtr();
@@ -46,14 +54,6 @@ namespace sushi
 		GLShader* FilledRectColorDynShader;
 		GLShader* FilledRectTexturedFixShader;
 		GLShader* FilledRectTexturedDynShader;
-
-		/* Containers, Counters, and GLobjects - FilledRectColorFix */
-		std::vector<float> fixFilledRectVertices;
-		std::vector<uint32_t> fixFilledRectIndices;
-		uint32_t fixFilledRectVerticesCnt;
-		uint32_t fixFilledRectIndicesCnt;
-		uint32_t fixFilledRectIndicesOffset;
-		uint32_t fixFilledRectCnt;
 
 		uint32_t fixFilledRectVAO;
 		uint32_t fixFilledRectVBO;

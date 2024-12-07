@@ -10,7 +10,3 @@ sushi::FilledRectColorDyn::~FilledRectColorDyn()
 
 }
 
-void sushi::FilledRectColorDyn::draw()
-{
-
-}

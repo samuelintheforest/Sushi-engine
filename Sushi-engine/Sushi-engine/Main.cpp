@@ -27,6 +27,7 @@ int main()
 		};
 		rects.push_back(tmoRect);
 	}
+	
 
 	GameLogic::GraphicsManager->setUpSGXVertexMisc();
 	while(!GameLogic::DisplayManager->getWindowShouldClose())

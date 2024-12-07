@@ -9,8 +9,3 @@ sushi::FilledRectTexturedFix::~FilledRectTexturedFix()
 {
 
 }
-
-void sushi::FilledRectTexturedFix::draw()
-{
-
-}

@@ -15,7 +15,6 @@ namespace sushi
 		FilledRectTexturedDyn();
 		~FilledRectTexturedDyn();
 
-		void draw();
 	private:
 
 	};

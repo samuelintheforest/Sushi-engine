@@ -14,7 +14,6 @@ namespace sushi
 		FilledRectTexturedFix();
 		~FilledRectTexturedFix();
 
-		void draw();
 	private:
 
 	};
