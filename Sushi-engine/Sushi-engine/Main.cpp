@@ -2,7 +2,9 @@
 #include "Rectangle.h"
 #include "Layer.h"
 #include "FilledRectColorFix.h"
+#include "FilledRectTexturedFix.h"
 #include "Types.h"
+#include "Texture.h"
 
 #include <random>
 
@@ -12,23 +14,14 @@ int main()
 {
 	GameLogic::initGame();
 
-	std::vector<FilledRectColorFix> rects;
-	std::mt19937 gen;
-	std::uniform_int_distribution<> distrColor(40, 255);
-	std::uniform_int_distribution<> distrPos(-100, 800);
-	for (uint16_t cnt = 0; cnt < 10000; cnt++)
-	{
-		Vec2 pos = { distrPos(gen), distrPos(gen) };
-		IVec3 color = { 30, distrColor(gen), 50 };
-		FilledRectColorFix tmoRect = { 
-			{ pos, 20, 20 }, 
-			{ color, 255 }, 
-			0 
-		};
-		rects.push_back(tmoRect);
-	}
-	
+	Texture* tx = new Texture("C:\\Users\\keres\\Pictures\\pixel-arts\\road-nextto-river2_2048.png", NULL, NULL, true, true, nullptr);
+	std::cout << "TX w:" << tx->width << std::endl;
+	std::cout << "Texture ID:" << tx->txId << std::endl;
 
+	FilledRectColorFix rect = { {100, 100, 310, 200}, {0, 0, 255, 255}, 0 };
+	FilledRectTexturedFix rectTx = { {200, 200, tx->width * 0.2f, tx->height * 0.2f}, 1, {0.0, 0.0, 1.0, 1.0}, tx };
+	FilledRectTexturedFix rectTx2 = { {200, 100, tx->width * 1.0f, tx->height * 1.0f}, -1, {0.0, 0.0, 1.0, 1.0}, tx };
+	
 	GameLogic::GraphicsManager->setUpSGXVertexMisc();
 	while(!GameLogic::DisplayManager->getWindowShouldClose())
 	{
@@ -41,10 +34,31 @@ int main()
 		GameLogic::renderState();
 	}
 
+	delete tx;
 	GameLogic::endGame();
 }
 
 //// HELPER FUNCTION: CENTERS THE SCREEN
+// 
+// 
+// 	//std::vector<FilledRectColorFix> rects;
+	//std::mt19937 gen;
+	//std::uniform_int_distribution<> distrColor(40, 255);
+	//std::uniform_int_distribution<> distrPos(-100, 800);
+	//for (uint16_t cnt = 0; cnt < 10000; cnt++)
+	//{
+	//	Vec2 pos = { distrPos(gen), distrPos(gen) };
+	//	IVec3 color = { 30, distrColor(gen), 50 };
+	//	FilledRectColorFix tmoRect = { 
+	//		{ pos, 20, 20 }, 
+	//		{ color, 255 }, 
+	//		0 
+	//	};
+	//	rects.push_back(tmoRect);
+	//}
+	//
+// 
+// 
 //void glfwSetWindowCenter(GLFWwindow* window) {
 //    // Get window position and size
 //    int window_x, window_y;

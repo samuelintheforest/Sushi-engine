@@ -10,6 +10,7 @@
 
 
 #include <iostream>
+#include <sstream>
 #include <vector>
 
 #include "Types.h"
@@ -28,7 +29,6 @@ namespace sushi
 		void enableSGXDepth();
 		void disableSGXDepth();
 		void setSGXViewport(int32_t x, int32_t y, int32_t w, int32_t h);
-		void addNewfixFilledRect(FilledRectColorFixDesc* rect);
 
 		void setUpSGXVertexMisc();
 		void setSGXUniformMatrices(const Mat4& model, const Mat4& view, const Mat4& proj);
@@ -39,6 +39,7 @@ namespace sushi
 		/* Containers, Counters, and GLobjects - FilledRectColorFix */
 		std::vector<float> fixFilledRectVertices;
 		std::vector<uint32_t> fixFilledRectIndices;
+		std::vector<uint32_t> textureSlot;
 		uint32_t fixFilledRectVerticesCnt;
 		uint32_t fixFilledRectIndicesCnt;
 		uint32_t fixFilledRectIndicesOffset;

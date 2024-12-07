@@ -1,7 +1,11 @@
-#include "..\includes\stb_image.h"
-#include "..\includes\Texture.h"
 
-sushi::Texture::Texture(char* imgPath, const stbi_uc* imgVal, int size, bool flipped, bool glNeeded, float* atlasData)
+#include "Texture.h"
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+
+#include "GameLogic.h"
+
+sushi::Texture::Texture(const char* imgPath, const unsigned char* imgVal, int size, bool flipped, bool glNeeded, float* atlasData)
 {
 	data = NULL;
 	width = 0;
@@ -19,7 +23,7 @@ sushi::Texture::Texture(char* imgPath, const stbi_uc* imgVal, int size, bool fli
 	}
 	else
 	{
-		std::cout << "ERROR:: Please specify only one possible source: either memory or path please!" << std::endl;
+		std::cout << "ERROR:: Please specify only one possible source: either memory or path!" << std::endl;
 	}
 	if (glNeeded == true) 
 	{
@@ -29,6 +33,8 @@ sushi::Texture::Texture(char* imgPath, const stbi_uc* imgVal, int size, bool fli
 		temp.nrChannels = nr_channels;
 		temp.data = data;
 		textureLoad(&temp, NEAREST);
+
+		sushi::GameLogic::GraphicsManager->textureSlot.push_back(this->txId);
 	}
 }
 
@@ -60,7 +66,7 @@ void sushi::Texture::loadImage(const char* path)
 	data = stbi_load(path, &width, &height, &nr_channels, 0);
 }
 
-void sushi::Texture::loadImageFMem(const stbi_uc *imageData, int size)
+void sushi::Texture::loadImageFMem(const unsigned char*imageData, int size)
 {
 	data = stbi_load_from_memory(imageData, size, &width, &height, &nr_channels, 0);
 }
@@ -98,6 +104,7 @@ void sushi::Texture::textureLoad(TextureDesc* texSrc, int FLAG)
 		if (texSrc->data != NULL)
 		{
 			glTexImage2D(GL_TEXTURE_2D, 0, flag, texSrc->width, texSrc->height, 0, flag, GL_UNSIGNED_BYTE, texSrc->data);
+			glGenerateMipmap(GL_TEXTURE_2D);
 		}
 		//freeTexture();
 	

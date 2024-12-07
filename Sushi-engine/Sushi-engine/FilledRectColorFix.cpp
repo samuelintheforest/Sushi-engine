@@ -45,7 +45,7 @@ void sushi::FilledRectColorFix::addElement()
     sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back((float)this->color.y * sushi::colorRatio);
     sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back((float)this->color.z * sushi::colorRatio);
     sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back((float)this->color.a * sushi::colorRatio);
-    sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back(0.0f);
+    sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back(-1.0f);
 
     /* 2. Point: LT */
     sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back((float)this->pos.x);
@@ -55,7 +55,7 @@ void sushi::FilledRectColorFix::addElement()
     sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back((float)this->color.y * sushi::colorRatio);
     sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back((float)this->color.z * sushi::colorRatio);
     sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back((float)this->color.a * sushi::colorRatio);
-    sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back(0.0f);
+    sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back(-1.0f);
 
     /* 3. Point: LT */
     sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back((float)(this->pos.x + this->dim.x));
@@ -65,7 +65,7 @@ void sushi::FilledRectColorFix::addElement()
     sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back((float)this->color.y * sushi::colorRatio);
     sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back((float)this->color.z * sushi::colorRatio);
     sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back((float)this->color.a * sushi::colorRatio);
-    sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back(0.0f);
+    sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back(-1.0f);
 
     /* 4. Point: LT */
     sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back((float)(this->pos.x + this->dim.x));
@@ -75,7 +75,7 @@ void sushi::FilledRectColorFix::addElement()
     sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back((float)this->color.y * sushi::colorRatio);
     sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back((float)this->color.z * sushi::colorRatio);
     sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back((float)this->color.a * sushi::colorRatio);
-    sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back(0.0f);
+    sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back(-1.0f);
 
     sushi::GameLogic::GraphicsManager->fixFilledRectVerticesCnt += 32; /* 8 * 4 = 32 */
 

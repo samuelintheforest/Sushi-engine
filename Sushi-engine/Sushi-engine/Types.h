@@ -57,6 +57,17 @@ namespace sushi
 		int32_t a;
 	} FilledRectColorFixDesc;
 
+	typedef struct
+	{
+		int32_t x;
+		int32_t y;
+		int32_t z;
+		int32_t w;
+		int32_t h;
+		int32_t tex_x;
+		int32_t tex_y;
+	} FilledRectTexturedFixDesc;
+
 	/* TODO */
 	typedef struct {
 		unsigned long  Data1;
@@ -64,6 +75,14 @@ namespace sushi
 		unsigned short Data3;
 		unsigned char  Data4[8];
 	} GUID;
+
+	typedef struct
+	{
+		short width;
+		short height;
+		short nrChannels;
+		unsigned char* data;
+	} TextureDesc;
 
 }
 

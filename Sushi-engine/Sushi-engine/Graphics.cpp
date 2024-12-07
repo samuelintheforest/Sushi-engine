@@ -34,7 +34,7 @@ sushi::Graphics::Graphics()
     compileSGXShaders();
 
     FilledRectColorFixShader->use();
-    FilledRectColorFixProjectionM4 = glm::orthoRH(0.0f, 800.0f, 0.0f, 800.0f, -65535.f, 65535.f);
+    FilledRectColorFixProjectionM4 = glm::orthoRH(0.0f, 800.0f, 800.0f, 0.0f, -65535.f, 65535.f);
     setSGXUniformMatrices(FilledRectColorFixModelM4, FilledRectColorFixViewM4, FilledRectColorFixProjectionM4);
     
 }
@@ -79,6 +79,10 @@ void sushi::Graphics::compileSGXShaders()
 
 void sushi::Graphics::setUpSGXVertexMisc()
 {
+    if (!fixFilledRectIndices.size())
+    {
+        return;
+    }
     // Create vertex array of the quad_batch
     glGenVertexArrays(1, &fixFilledRectVAO);
     glBindVertexArray(fixFilledRectVAO);
@@ -117,6 +121,17 @@ void sushi::Graphics::setUpSGXVertexMisc()
     {
         std::cout << "DEBUG::SOME OF THE BUFFERS/ARRAYS WEREN\'T CREATED" << std::endl;
     }
+
+
+    /* Binding textures to shaders */
+    for (auto& val : this->textureSlot)
+    {
+        std::stringstream sbuff;
+        sbuff << "txs_" << val - 1;
+        this->FilledRectColorFixShader->use();
+        this->FilledRectColorFixShader->setInt(sbuff.str(), val);
+    }
+    
 }
 
 void sushi::Graphics::setSGXUniformMatrices(const Mat4& model, const Mat4& view, const Mat4& proj)
@@ -129,7 +144,18 @@ void sushi::Graphics::setSGXUniformMatrices(const Mat4& model, const Mat4& view,
 
 void sushi::Graphics::renderSGXfixFilledRects()
 {
+    if (!fixFilledRectIndices.size())
+    {
+        return;
+    }
+
     setSGXUniformMatrices(FilledRectColorFixModelM4, FilledRectColorFixViewM4, FilledRectColorFixProjectionM4);
+    for (auto& val : this->textureSlot)
+    {
+        glActiveTexture(GL_TEXTURE0 + val - 1);
+        glBindTexture(GL_TEXTURE_2D, val);
+    }
+    
     glBindVertexArray(fixFilledRectVAO);
     glDrawElements(GL_TRIANGLES, fixFilledRectIndicesCnt, GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);

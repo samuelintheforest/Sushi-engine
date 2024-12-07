@@ -2,8 +2,15 @@
 #define TEXTURE_H
 
 
-//#include <glad/glad.h>
+#include <glad/glad.h>
 #include <iostream>
+
+#include "Types.h"
+
+
+
+
+
 namespace sushi {
 	class Texture
 	{
@@ -11,26 +18,20 @@ namespace sushi {
 		#define NEAREST 21
 		#define LINEAR 12
 
-		struct TextureDesc
-		{
-			short width;
-			short height;
-			short nrChannels;
-			stbi_uc* data;
-		};
 
-		Texture(char* imgPath, const stbi_uc* imgVal, int size, bool flipped, bool glNeeded, float* atlasData);
+
+		Texture(const char* imgPath, const unsigned char* imgVal, int size, bool flipped, bool glNeeded, float* atlasData);
 		~Texture();
 		void freeTexture();
 		void deleteTexture();
 		int width;
 		int height;
 		int nr_channels;
-		stbi_uc* data;
+		unsigned char* data;
 		GLuint txId;
 	private:
 		void loadImage(const char* path);
-		void loadImageFMem(const stbi_uc* imageData, int size);
+		void loadImageFMem(const unsigned char* imageData, int size);
 		void textureLoad(TextureDesc* texSrc, int FLAG);
 
 		bool gl_needed;

@@ -1,5 +1,6 @@
 #include "GameLogic.h"
 
+
 sushi::Timer* sushi::GameLogic::TimerManager = 0;
 sushi::Display* sushi::GameLogic::DisplayManager = 0;
 sushi::Input* sushi::GameLogic::InputManager = 0;
