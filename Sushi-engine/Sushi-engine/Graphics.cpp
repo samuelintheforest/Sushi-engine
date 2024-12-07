@@ -30,6 +30,7 @@ sushi::Graphics::Graphics()
     
     /* Depth, Viewport and Shader settings */
     enableSGXDepth();
+    enableSGXBlending();
     setSGXViewport(0, 0, 800, 800);
     compileSGXShaders();
 
@@ -53,6 +54,13 @@ void sushi::Graphics::loadSGXfuncsPtr()
     {
         std::cout << "Failed to initialize GLAD" << std::endl;
     }
+}
+
+void sushi::Graphics::enableSGXBlending()
+{
+    // Enable blending
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 }
 
 void sushi::Graphics::enableSGXDepth()
@@ -127,7 +135,7 @@ void sushi::Graphics::setUpSGXVertexMisc()
     for (auto& val : this->textureSlot)
     {
         std::stringstream sbuff;
-        sbuff << "txs_" << val - 1;
+        sbuff << "txs_" << val;
         this->FilledRectColorFixShader->use();
         this->FilledRectColorFixShader->setInt(sbuff.str(), val);
     }
@@ -152,7 +160,7 @@ void sushi::Graphics::renderSGXfixFilledRects()
     setSGXUniformMatrices(FilledRectColorFixModelM4, FilledRectColorFixViewM4, FilledRectColorFixProjectionM4);
     for (auto& val : this->textureSlot)
     {
-        glActiveTexture(GL_TEXTURE0 + val - 1);
+        glActiveTexture(GL_TEXTURE0 + val);
         glBindTexture(GL_TEXTURE_2D, val);
     }
     

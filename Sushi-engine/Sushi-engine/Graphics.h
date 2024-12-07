@@ -47,6 +47,7 @@ namespace sushi
 
 	private:
 		void loadSGXfuncsPtr();
+		void enableSGXBlending();
 		void compileSGXShaders();
 
 

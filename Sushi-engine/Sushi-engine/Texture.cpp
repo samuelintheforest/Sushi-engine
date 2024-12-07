@@ -104,7 +104,6 @@ void sushi::Texture::textureLoad(TextureDesc* texSrc, int FLAG)
 		if (texSrc->data != NULL)
 		{
 			glTexImage2D(GL_TEXTURE_2D, 0, flag, texSrc->width, texSrc->height, 0, flag, GL_UNSIGNED_BYTE, texSrc->data);
-			glGenerateMipmap(GL_TEXTURE_2D);
 		}
 		//freeTexture();
 	
