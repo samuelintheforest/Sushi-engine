@@ -13,7 +13,6 @@
 #include <sstream>
 #include <vector>
 
-#include "Types.h"
 
 namespace sushi
 {
@@ -40,10 +39,6 @@ namespace sushi
 		std::vector<float> fixFilledRectVertices;
 		std::vector<uint32_t> fixFilledRectIndices;
 		std::vector<uint32_t> textureSlot;
-		uint32_t fixFilledRectVerticesCnt;
-		uint32_t fixFilledRectIndicesCnt;
-		uint32_t fixFilledRectIndicesOffset;
-		uint32_t fixFilledRectCnt;
 
 	private:
 		void loadSGXfuncsPtr();
@@ -52,18 +47,17 @@ namespace sushi
 
 
 		/* Shader pointers */
-		GLShader* FilledRectColorFixShader;
-		GLShader* FilledRectColorDynShader;
-		GLShader* FilledRectTexturedFixShader;
-		GLShader* FilledRectTexturedDynShader;
+		SGXShader* FilledRectFixShader;
+		SGXShader* FilledRectColorDynShader;
+		SGXShader* FilledRectTexturedDynShader;
 
 		uint32_t fixFilledRectVAO;
 		uint32_t fixFilledRectVBO;
 		uint32_t fixFilledRectEBO;
 
-		Mat4 FilledRectColorFixModelM4 = Mat4(1.0f);
-		Mat4 FilledRectColorFixViewM4 = Mat4(1.0f);
-		Mat4 FilledRectColorFixProjectionM4 = Mat4(1.0f);
+		Mat4 FilledRectFixModelM4 = Mat4(1.0f);
+		Mat4 FilledRectFixViewM4 = Mat4(1.0f);
+		Mat4 FilledRectFixProjectionM4 = Mat4(1.0f);
 		
 	};
 }

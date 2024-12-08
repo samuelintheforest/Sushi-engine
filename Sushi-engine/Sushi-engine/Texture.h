@@ -1,40 +1,31 @@
 #ifndef TEXTURE_H
 #define TEXTURE_H
 
-
-#include <glad/glad.h>
-#include <iostream>
-
-#include "Types.h"
-
-
-
-
+#include "Image.h"
+#include <string>
 
 namespace sushi {
-	class Texture
+
+	class SGXTexture : Image
 	{
 	public:
-		#define NEAREST 21
-		#define LINEAR 12
+
+		SGXTexture(const std::string& imgPath, bool flipped);
+		SGXTexture(const unsigned char* imageData, int dataSize, bool flipped);
+		~SGXTexture();
 
 
-
-		Texture(const char* imgPath, const unsigned char* imgVal, int size, bool flipped, bool glNeeded, float* atlasData);
-		~Texture();
-		void freeTexture();
-		void deleteTexture();
-		int width;
-		int height;
-		int nr_channels;
-		unsigned char* data;
-		GLuint txId;
+		/* Getter methods */
+		uint32_t getTextureID() const;
+		uint32_t getTextureWidth() const;
+		uint32_t getTextureHeight() const;
+		uint32_t getTextureColorCh() const;
+		
 	private:
-		void loadImage(const char* path);
-		void loadImageFMem(const unsigned char* imageData, int size);
-		void textureLoad(TextureDesc* texSrc, int FLAG);
 
-		bool gl_needed;
+		/* members */
+		void loadTexture();
+		uint32_t textureID;
 
 	};
 }

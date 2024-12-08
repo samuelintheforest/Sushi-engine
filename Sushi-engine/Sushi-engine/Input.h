@@ -1,10 +1,6 @@
 #ifndef INPUT_H
 #define INPUT_H
 
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
-#include "Display.h"
-
 
 namespace sushi
 {
@@ -17,13 +13,11 @@ namespace sushi
 	{
 	public:
 		// Konstruktor és Destruktor definiálása
-		Input(Display* displayPtr);
+		Input();
 		~Input();
 		void pollEvents();
 		void swapDisplayBuffer();
 
-		static uint32_t joystickPresent[16];
-		
 	private:
 		// Keyboard events callback
 		static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
@@ -39,10 +33,8 @@ namespace sushi
 		static void joystick_callback(int jid, int event);
 		// Joystick jelen van-e vagy sem
 		static void check_joysticks_present();
-
-		
-		static GLFWwindow* WindowPtr;
-		static Display* DisplayPtr;
+		static uint32_t joystickPresent[16];
+		GLFWwindow* WindowPtr;
 		
 	};
 }

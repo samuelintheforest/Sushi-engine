@@ -6,13 +6,10 @@
 
 namespace sushi
 {
-
-	/*Todo*/
-
 	class FilledRectTexturedFix : public Rectangle
 	{
 	public:
-		FilledRectTexturedFix(IVec4 args, int32_t z, Vec4 txInfo, const Texture* tx);
+		FilledRectTexturedFix(IVec4 args, int32_t z, Vec4 txInfo, const SGXTexture* tx);
 		~FilledRectTexturedFix();
 	protected:
 		void addElement();
@@ -22,8 +19,6 @@ namespace sushi
 		uint32_t txW;
 		uint32_t txH;
 	};
-
-
 }
 
 #endif

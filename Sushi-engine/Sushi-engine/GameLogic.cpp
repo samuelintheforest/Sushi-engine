@@ -11,8 +11,8 @@ uint64_t sushi::GameLogic::cycleStart = 0;
 void sushi::GameLogic::initGame(void)
 {
 	sushi::GameLogic::TimerManager = new sushi::Timer();
-	sushi::GameLogic::DisplayManager = new sushi::Display(800, 800, false, false);
-	sushi::GameLogic::InputManager = new sushi::Input(DisplayManager);
+	sushi::GameLogic::DisplayManager = new sushi::Display(800, 800, false, true);
+	sushi::GameLogic::InputManager = new sushi::Input();
 	sushi::GameLogic::GraphicsManager = new sushi::Graphics();
 	sushi::SceneDescription sd = { sushi::SCENE_2D , 1, 0 };
 	sushi::GameLogic::GameScene = new sushi::Scene(&sd);
@@ -43,7 +43,7 @@ void sushi::GameLogic::renderState()
 	sushi::GameLogic::InputManager->swapDisplayBuffer();
 	sushi::GameLogic::GraphicsManager->SGXFinishOperation();
 	float cycleTime = (float)(sushi::GameLogic::TimerManager->getTimeMicroSec() - cycleStart) / 1000000.0f;
-	//std::cout << "Cycle time (s): " << cycleTime << "s" << "\t\t" << "FPS: " << 1.0f / cycleTime << "\t\t" << std::endl;
+	std::cout << "Cycle time (s): " << cycleTime << "s" << "\t\t" << "FPS: " << 1.0f / cycleTime << "\t\t" << std::endl;
 }
 
 void sushi::GameLogic::addtoScene(Entity* entity)

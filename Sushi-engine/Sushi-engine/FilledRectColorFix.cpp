@@ -37,6 +37,8 @@ void sushi::FilledRectColorFix::getDesc(FilledRectColorFixDesc& rectDesc)
 
 void sushi::FilledRectColorFix::addElement()
 {
+    uint32_t indices_offset = (uint32_t)sushi::GameLogic::GraphicsManager->fixFilledRectVertices.size() / 8; /* 8 float vertex data */
+
     /* 1. Point: LB */
     sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back((float)this->pos.x);
     sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back((float)(this->pos.y + this->dim.y));
@@ -77,22 +79,15 @@ void sushi::FilledRectColorFix::addElement()
     sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back((float)this->color.a * sushi::colorRatio);
     sushi::GameLogic::GraphicsManager->fixFilledRectVertices.push_back(-1.0f);
 
-    sushi::GameLogic::GraphicsManager->fixFilledRectVerticesCnt += 32; /* 8 * 4 = 32 */
-
     /* Adding the indices to FixIndices */
-    sushi::GameLogic::GraphicsManager->fixFilledRectIndices.push_back(0 + sushi::GameLogic::GraphicsManager->fixFilledRectIndicesOffset);
-    sushi::GameLogic::GraphicsManager->fixFilledRectIndices.push_back(1 + sushi::GameLogic::GraphicsManager->fixFilledRectIndicesOffset);
-    sushi::GameLogic::GraphicsManager->fixFilledRectIndices.push_back(2 + sushi::GameLogic::GraphicsManager->fixFilledRectIndicesOffset);
-    sushi::GameLogic::GraphicsManager->fixFilledRectIndices.push_back(1 + sushi::GameLogic::GraphicsManager->fixFilledRectIndicesOffset);
-    sushi::GameLogic::GraphicsManager->fixFilledRectIndices.push_back(2 + sushi::GameLogic::GraphicsManager->fixFilledRectIndicesOffset);
-    sushi::GameLogic::GraphicsManager->fixFilledRectIndices.push_back(3 + sushi::GameLogic::GraphicsManager->fixFilledRectIndicesOffset);
+    sushi::GameLogic::GraphicsManager->fixFilledRectIndices.push_back(0 + indices_offset);
+    sushi::GameLogic::GraphicsManager->fixFilledRectIndices.push_back(1 + indices_offset);
+    sushi::GameLogic::GraphicsManager->fixFilledRectIndices.push_back(2 + indices_offset);
+    sushi::GameLogic::GraphicsManager->fixFilledRectIndices.push_back(1 + indices_offset);
+    sushi::GameLogic::GraphicsManager->fixFilledRectIndices.push_back(2 + indices_offset);
+    sushi::GameLogic::GraphicsManager->fixFilledRectIndices.push_back(3 + indices_offset);
 
-    sushi::GameLogic::GraphicsManager->fixFilledRectIndicesCnt += 6;
-    sushi::GameLogic::GraphicsManager->fixFilledRectIndicesOffset += 4;
-
-    sushi::GameLogic::GraphicsManager->fixFilledRectCnt++;
-
-	std::cout << "Added: from FilledRectColorFix class; FixRectCount: " << sushi::GameLogic::GraphicsManager->fixFilledRectCnt << std::endl;
+	/* std::cout << "Added: from FilledRectColorFix class; FixRectCount: " << sushi::GameLogic::GraphicsManager->fixFilledRectCnt << std::endl; */
 }
 
 

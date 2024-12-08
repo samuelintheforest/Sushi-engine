@@ -15,6 +15,13 @@ sushi::Display::Display(uint32_t screenW, uint32_t screenH, bool fullscreen, boo
 	// Létrehozom az ablakot
 	createWindow();
 
+	if (vsync)
+	{
+		enableWindowVsync();
+	}
+
+	// Make ontext current
+	glfwMakeContextCurrent(window);
 }
 
 sushi::Display::~Display()
@@ -77,9 +84,6 @@ void sushi::Display::createWindow()
 		}
 		
 	}
-
-	// Make ontext current
-	glfwMakeContextCurrent(window);
 	
 }
 

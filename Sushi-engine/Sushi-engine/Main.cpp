@@ -1,9 +1,6 @@
 #include "GameLogic.h"
-#include "Rectangle.h"
-#include "Layer.h"
 #include "FilledRectColorFix.h"
 #include "FilledRectTexturedFix.h"
-#include "Types.h"
 #include "Texture.h"
 
 #include <random>
@@ -14,15 +11,14 @@ int main()
 {
 	GameLogic::initGame();
 
-	Texture* tx = new Texture("C:\\Users\\keres\\Pictures\\pixel-arts\\road-nextto-river2_2048.png", NULL, NULL, true, true, nullptr);
-	Texture* tx2 = new Texture("C:\\Users\\keres\\Pictures\\hello.png", NULL, NULL, true, true, nullptr);
+	std::string path_to_map = "C:\\Users\\keres\\Documents\\graphics_art\\maps\\sushi_engine_demo\\overworld.tsx";
 
-	std::cout << "TX w:" << tx->width << std::endl;
-	std::cout << "Texture ID:" << tx->txId << std::endl;
+	SGXTexture* tx = new SGXTexture("C:\\Users\\keres\\Pictures\\pixel-arts\\road-nextto-river2_2048.png", false);
+	SGXTexture* tx2 = new SGXTexture("C:\\Users\\keres\\Pictures\\hello.png", false);
 
 	FilledRectColorFix rect = { {100, 100, 310, 200}, {0, 0, 255, 255}, 1 };
-	FilledRectTexturedFix rectTx = { {200, 200, tx->width * 0.2f, tx->height * 0.2f}, -1, {0.0, 0.0, 1.0, 1.0}, tx };
-	FilledRectTexturedFix rectTx2 = { {200, 100, tx2->width * 1.0f, tx2->height * 1.0f}, 0, {0.0, 0.0, 1.0, 1.0}, tx2 };
+	FilledRectTexturedFix rectTx = { {200, 200, tx->getTextureWidth() * 0.2f, tx->getTextureHeight() * 0.2f}, -1, {0.0, 0.0, 1.0, 1.0}, tx };
+	FilledRectTexturedFix rectTx2 = { {200, 100, tx2->getTextureWidth(), tx2->getTextureHeight()}, 0, {0.0, 0.0, 1.0, 1.0}, tx2};
 
 	
 	GameLogic::GraphicsManager->setUpSGXVertexMisc();
@@ -38,6 +34,7 @@ int main()
 	}
 
 	delete tx;
+	delete tx2;
 	GameLogic::endGame();
 }
 

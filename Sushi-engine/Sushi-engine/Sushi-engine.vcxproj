@@ -147,12 +147,15 @@
     <ClCompile Include="glad.c" />
     <ClCompile Include="GLShader.cpp" />
     <ClCompile Include="Graphics.cpp" />
+    <ClCompile Include="Image.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Rectangle.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="Tilemap.cpp" />
+    <ClCompile Include="Tileset.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="TimerThread.cpp" />
   </ItemGroup>
@@ -166,18 +169,24 @@
     <ClInclude Include="GameLogic.h" />
     <ClInclude Include="GLShader.h" />
     <ClInclude Include="Graphics.h" />
+    <ClInclude Include="Image.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="Rectangle.h" />
     <ClInclude Include="stb_image.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="Tilemap.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="Tileset.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="TimerThread.h" />
     <ClInclude Include="Types.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="shaders\FilledRectColorORTxFixShader.frag" />
-    <None Include="shaders\FilledRectColorORTxFixShader.vert" />
+    <None Include="shaders\FilledRectFixShader.frag" />
+    <None Include="shaders\FilledRectFixShader.vert" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,6 +1,6 @@
 #include "GLShader.h"
 
-sushi::GLShader::GLShader(const char* vertexPath, const char* fragmentPath, const char* geometryPath = nullptr)
+sushi::SGXShader::SGXShader(const char* vertexPath, const char* fragmentPath, const char* geometryPath = nullptr)
 {
     ID = 0;
 
@@ -71,7 +71,6 @@ sushi::GLShader::GLShader(const char* vertexPath, const char* fragmentPath, cons
     // shader Program
 
     ID = glCreateProgram();
-    std::cout << "Program status: " << ID << std::endl;
     glAttachShader(ID, vertex);
     glAttachShader(ID, fragment);
     if (geometryPath != nullptr)
@@ -86,76 +85,76 @@ sushi::GLShader::GLShader(const char* vertexPath, const char* fragmentPath, cons
     use();
 }
 
-sushi::GLShader::~GLShader(void)
+sushi::SGXShader::~SGXShader(void)
 {
     glDeleteProgram(ID);
     std::cout << "Shader program deleted" << std::endl;
 }
 
 
-void sushi::GLShader::use()
+void sushi::SGXShader::use()
 {
     glUseProgram(ID);
 }
 
-void sushi::GLShader::setBool(const std::string& name, bool value) const
+void sushi::SGXShader::setBool(const std::string& name, bool value) const
 {
     glUniform1i(glGetUniformLocation(ID, name.c_str()), (int)value);
 }
 // ------------------------------------------------------------------------
-void sushi::GLShader::setInt(const std::string& name, int32_t value) const
+void sushi::SGXShader::setInt(const std::string& name, int32_t value) const
 {
     glUniform1i(glGetUniformLocation(ID, name.c_str()), value);
 }
 // ------------------------------------------------------------------------
-void sushi::GLShader::setFloat(const std::string& name, float value) const
+void sushi::SGXShader::setFloat(const std::string& name, float value) const
 {
     glUniform1f(glGetUniformLocation(ID, name.c_str()), value);
 }
 // ------------------------------------------------------------------------
-void sushi::GLShader::setVec2(const std::string& name, const Vec2& value) const
+void sushi::SGXShader::setVec2(const std::string& name, const Vec2& value) const
 {
     glUniform2fv(glGetUniformLocation(ID, name.c_str()), 1, &value[0]);
 }
-void sushi::GLShader::setVec2(const std::string& name, float x, float y) const
+void sushi::SGXShader::setVec2(const std::string& name, float x, float y) const
 {
     glUniform2f(glGetUniformLocation(ID, name.c_str()), x, y);
 }
 // ------------------------------------------------------------------------
-void sushi::GLShader::setVec3(const std::string& name, const Vec3& value) const
+void sushi::SGXShader::setVec3(const std::string& name, const Vec3& value) const
 {
     glUniform3fv(glGetUniformLocation(ID, name.c_str()), 1, &value[0]);
 }
-void sushi::GLShader::setVec3(const std::string& name, float x, float y, float z) const
+void sushi::SGXShader::setVec3(const std::string& name, float x, float y, float z) const
 {
     glUniform3f(glGetUniformLocation(ID, name.c_str()), x, y, z);
 }
 // ------------------------------------------------------------------------
-void sushi::GLShader::setVec4(const std::string& name, const Vec4& value) const
+void sushi::SGXShader::setVec4(const std::string& name, const Vec4& value) const
 {
     glUniform4fv(glGetUniformLocation(ID, name.c_str()), 1, &value[0]);
 }
-void sushi::GLShader::setVec4(const std::string& name, float x, float y, float z, float w)
+void sushi::SGXShader::setVec4(const std::string& name, float x, float y, float z, float w)
 {
     glUniform4f(glGetUniformLocation(ID, name.c_str()), x, y, z, w);
 }
 // ------------------------------------------------------------------------
-void sushi::GLShader::setMat2(const std::string& name, const Mat2& mat) const
+void sushi::SGXShader::setMat2(const std::string& name, const Mat2& mat) const
 {
     glUniformMatrix2fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, &mat[0][0]);
 }
 // ------------------------------------------------------------------------
-void sushi::GLShader::setMat3(const std::string& name, const Mat3& mat) const
+void sushi::SGXShader::setMat3(const std::string& name, const Mat3& mat) const
 {
     glUniformMatrix3fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, &mat[0][0]);
 }
 // ------------------------------------------------------------------------
-void sushi::GLShader::setMat4(const std::string& name, const Mat4& mat) const
+void sushi::SGXShader::setMat4(const std::string& name, const Mat4& mat) const
 {
     glUniformMatrix4fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, &mat[0][0]);
 }
 
-void sushi::GLShader::checkCompileErrors(uint32_t shader, std::string type)
+void sushi::SGXShader::checkCompileErrors(uint32_t shader, std::string type)
 {
     GLint success;
     GLchar infoLog[1024];
@@ -167,11 +166,6 @@ void sushi::GLShader::checkCompileErrors(uint32_t shader, std::string type)
             glGetShaderInfoLog(shader, 1024, NULL, infoLog);
             std::cout << "ERROR::SHADER_COMPILATION_ERROR of type: " << type << "\n" << infoLog << "\n -- --------------------------------------------------- -- " << std::endl;
         }
-        else
-        {
-            glGetShaderInfoLog(shader, 1024, NULL, infoLog);
-            std::cout << "SUCCESS::SHADER_COMPILATION_SUCCESS: " << type << "\n" << infoLog << "\n -- --------------------------------------------------- -- " << std::endl;
-        }
     }
     else
     {
@@ -180,11 +174,6 @@ void sushi::GLShader::checkCompileErrors(uint32_t shader, std::string type)
         {
             glGetProgramInfoLog(shader, 1024, NULL, infoLog);
             std::cout << "ERROR::PROGRAM_LINKING_ERROR of type: " << type << "\n" << infoLog << "\n -- --------------------------------------------------- -- " << std::endl;
-        }
-        else
-        {
-            glGetShaderInfoLog(shader, 1024, NULL, infoLog);
-            std::cout << "SUCCESS::PROGRAM_LINKING_SUCCESS: " << type << "\n" << infoLog << "\n -- --------------------------------------------------- -- " << std::endl;
         }
     }
 }

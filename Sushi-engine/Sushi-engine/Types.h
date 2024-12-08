@@ -76,14 +76,6 @@ namespace sushi
 		unsigned char  Data4[8];
 	} GUID;
 
-	typedef struct
-	{
-		short width;
-		short height;
-		short nrChannels;
-		unsigned char* data;
-	} TextureDesc;
-
 }
 
 #endif // !TYPES_H
