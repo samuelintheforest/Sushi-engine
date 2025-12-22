@@ -17,11 +17,6 @@ sushi::Entity::~Entity()
 	/*DESTROY OBJ*/
 }
 
-void sushi::Entity::draw()
-{
-	//std::cout << "Render entity" << std::endl;
-}
-
 void sushi::Entity::addElement()
 {
 	sushi::GameLogic::addtoScene(this);

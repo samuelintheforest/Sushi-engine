@@ -1,15 +1,14 @@
-#include "Input.h"
 
-GLFWwindow* sushi::Input::WindowPtr = NULL;
-sushi::Display* sushi::Input::DisplayPtr = NULL;
-// Init Joystick avaliability
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+#include "Input.h"
+#include "GameLogic.h"
+
 uint32_t sushi::Input::joystickPresent[16];
 
-
-sushi::Input::Input(Display* displayPtr)
+sushi::Input::Input()
 {
-	DisplayPtr = displayPtr;
-	WindowPtr = displayPtr->window;
+	WindowPtr = sushi::GameLogic::DisplayManager->window;
 
 	// A callback függvények beállítása
 	glfwSetKeyCallback(WindowPtr, (GLFWkeyfun)key_callback);
@@ -24,11 +23,11 @@ sushi::Input::Input(Display* displayPtr)
 		joystickPresent[i] = 0;
 	}
 	check_joysticks_present();
-	
 }
 
 sushi::Input::~Input()
 {
+
 }
 
 void sushi::Input::pollEvents()
@@ -44,40 +43,40 @@ void sushi::Input::swapDisplayBuffer()
 void sushi::Input::key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
 	window;
-	std::cout << "=== EVENT: (Keyboard) |||  Key: " << key << ", Scancode: " << scancode << ", Action: " << action << ", Mods: " << mods << std::endl;
+	//std::cout << "=== EVENT: (Keyboard) |||  Key: " << key << ", Scancode: " << scancode << ", Action: " << action << ", Mods: " << mods << std::endl;
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
 	{
-		DisplayPtr->setWindowShouldClose(true);
+		sushi::GameLogic::DisplayManager->setWindowShouldClose(true);
 	}
 }
 
 void sushi::Input::cursor_position_callback(GLFWwindow* window, double xpos, double ypos)
 {
 	window;
-	std::cout << "=== EVENT: (Mouse) ||| Xpos: " << xpos << ", Ypos: " << ypos << std::endl;
+	//std::cout << "=== EVENT: (Mouse) ||| Xpos: " << xpos << ", Ypos: " << ypos << std::endl;
 }
 
 void sushi::Input::mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 {
 	window;
-	std::cout << "=== EVENT: (Mouse) ||| Button: " << button << ", Action: " << action << ", Mods: " << mods << std::endl;
+	//std::cout << "=== EVENT: (Mouse) ||| Button: " << button << ", Action: " << action << ", Mods: " << mods << std::endl;
 }
 
 void sushi::Input::scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 {
 	window;
-	std::cout << "=== EVENT: (Mouse) ||| Scroll: xoffset: " << xoffset << ", yoffset: " << yoffset << std::endl;
+	//std::cout << "=== EVENT: (Mouse) ||| Scroll: xoffset: " << xoffset << ", yoffset: " << yoffset << std::endl;
 }
 
 void sushi::Input::cursor_enter_callback(GLFWwindow* window, int entered)
 {
 	window;
-	std::cout << "=== EVENT: (Mouse) ||| Entered: " << entered << std::endl;
+	//std::cout << "=== EVENT: (Mouse) ||| Entered: " << entered << std::endl;
 }
 
 void sushi::Input::joystick_callback(int jid, int event)
 {
-	std::cout << "=== EVENT: (Joystick) ||| Joystick id: " << jid << ", event: " << event << std::endl;
+	//std::cout << "=== EVENT: (Joystick) ||| Joystick id: " << jid << ", event: " << event << std::endl;
 	check_joysticks_present();
 }
 
@@ -88,7 +87,7 @@ void sushi::Input::check_joysticks_present()
 		joystickPresent[i] = glfwJoystickPresent(i);
 		const char* name = glfwGetJoystickName(i);
 		name;
-		std::cout << "=== EVENT: (Joystick) ||| Jid: GLFW_JOYSTICK_" << i + 1 << ", present: " << joystickPresent[i] << std::endl;
+		//std::cout << "=== EVENT: (Joystick) ||| Jid: GLFW_JOYSTICK_" << i + 1 << ", present: " << joystickPresent[i] << std::endl;
 	}
 }
 

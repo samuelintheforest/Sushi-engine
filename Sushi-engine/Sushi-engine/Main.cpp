@@ -1,37 +1,70 @@
 #include "GameLogic.h"
-#include "Rectangle.h"
-#include "Layer.h"
 #include "FilledRectColorFix.h"
-#include "Types.h"
+#include "FilledRectTexturedFix.h"
+#include "FilledRectColorDyn.h"
+#include "Texture.h"
+
+#include <random>
+#include <cmath>
 
 using namespace sushi;
 
 int main()
 {
-	IVec3 green = { 99, 219, 105 };
-	IVec3 purple = { 102, 3, 252 };
 	GameLogic::initGame();
 
+	SGXTexture* tx = new SGXTexture("/home/samu/Pictures/earth_tp.png", false);
+	std::cout << tx->getTextureWidth() << std::endl;
+	// SGXTexture* tx2 = new SGXTexture("", false);
 
-	FilledRectColorFix rect_green = { { 1, 1, 303, 130 }, { green, 255 }, 1 };
-	FilledRectColorFix rect_blue = { { 150, 70, 303, 130 }, { purple, 255 }, 0 };
+	// FilledRectColorFix rect = { {100, 100, 310, 200}, {0, 0, 255, 255}, 1 };
+	FilledRectTexturedFix rectTx = { {200, 200, tx->getTextureWidth() * 5.0f, tx->getTextureHeight() * 5.0f}, 2, {0.0, 0.0, 1.0, 1.0}, tx };
+	FilledRectTexturedFix rectTx2 = { {400, 400, tx->getTextureWidth() * 5.0f, tx->getTextureHeight() * 5.0f}, 4, {0.0, 0.0, 1.0, 1.0}, tx };
+	// FilledRectTexturedFix rectTx2 = { {200, 100, tx2->getTextureWidth(), tx2->getTextureHeight()}, 0, {0.0, 0.0, 1.0, 1.0}, tx2};
 
-	GameLogic::GraphicsManager->setUpSGXVertexMisc();
+	IVec3 playerPos = {100, 100, 3};
+	IVec2 playerDim = {100, 250};
+	IVec4 playerColor = {50, 168, 82, 255};
+	
+	GameLogic::GraphicsManager->setUpSGXFixVertexMisc();
 	while(!GameLogic::DisplayManager->getWindowShouldClose())
 	{
 		/* Poll the events, update state */
 		GameLogic::updateState();
-
+		// sushi::GameLogic::GraphicsManager->clearSGXScreen((glm::sin((float)GameLogic::TimerManager->getTimeMicroSec() * 0.000001) + 1.0f) * 122.0f, 230, 151, 255);
 		//std::cout << "Ellapsed time since startup: " << GameLogic::TimerManager->getTimeMicroSec() << std::endl;
-		/* Main logic */
-		/* TODO */
+		playerPos.x = 250 + 100.0 * sin((double)GameLogic::TimerManager->getTimeMicroSec() / 100000.0);
+		/* Render using Graphical API - Wait until rendering is finished */
+		FilledRectColorDyn player({playerPos.x, playerPos.y, playerDim.x, playerDim.y}, playerColor, playerPos.z);
 		GameLogic::renderState();
 	}
 
+	delete tx;
+	// delete tx2;
 	GameLogic::endGame();
 }
 
 //// HELPER FUNCTION: CENTERS THE SCREEN
+// 
+// 
+// 	//std::vector<FilledRectColorFix> rects;
+	//std::mt19937 gen;
+	//std::uniform_int_distribution<> distrColor(40, 255);
+	//std::uniform_int_distribution<> distrPos(-100, 800);
+	//for (uint16_t cnt = 0; cnt < 10000; cnt++)
+	//{
+	//	Vec2 pos = { distrPos(gen), distrPos(gen) };
+	//	IVec3 color = { 30, distrColor(gen), 50 };
+	//	FilledRectColorFix tmoRect = { 
+	//		{ pos, 20, 20 }, 
+	//		{ color, 255 }, 
+	//		0 
+	//	};
+	//	rects.push_back(tmoRect);
+	//}
+	//
+// 
+// 
 //void glfwSetWindowCenter(GLFWwindow* window) {
 //    // Get window position and size
 //    int window_x, window_y;

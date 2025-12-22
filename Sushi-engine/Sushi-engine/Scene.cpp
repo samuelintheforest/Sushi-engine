@@ -13,10 +13,7 @@ sushi::Scene::~Scene()
 /*Drawing the scene*/
 void sushi::Scene::drawScene()
 {
-	for (Entity* entity : sceneEntities)
-	{
-		entity->draw();
-	}
+	/* What? */
 }
 
 // /*Adding New Entity members to the scene*/

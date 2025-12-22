@@ -16,9 +16,6 @@ namespace sushi
 		Entity(int32_t x, int32_t y, int32_t z);
 		~Entity();
 
-		virtual void draw();
-		
-		
 	protected:
 		IVec3 pos;
 		virtual void addElement();

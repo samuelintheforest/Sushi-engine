@@ -13,14 +13,14 @@
 #include <iostream>
 
 namespace sushi {
-    class GLShader
+    class SGXShader
     {
     public:
         uint32_t ID;
         // constructor generates the shader on the fly
         // ------------------------------------------------------------------------
-        GLShader(const char* vertexPath, const char* fragmentPath, const char* geometryPath);
-        ~GLShader(void);
+        SGXShader(const char* vertexPath, const char* fragmentPath, const char* geometryPath);
+        ~SGXShader();
         // activate the shader
         // ------------------------------------------------------------------------
         void use();

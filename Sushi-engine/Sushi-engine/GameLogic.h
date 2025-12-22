@@ -42,7 +42,8 @@ namespace sushi
 		static Graphics* GraphicsManager;
 		static Scene* GameScene;
 		static Timer* TimerManager;
-		
+
+		static uint64_t cycleStart;
 	};
 }
 

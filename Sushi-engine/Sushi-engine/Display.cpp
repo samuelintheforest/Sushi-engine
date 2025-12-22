@@ -5,16 +5,26 @@ sushi::Display::Display(uint32_t screenW, uint32_t screenH, bool fullscreen, boo
 {
 	this->fullscren = fullscreen;
 	this->vsync = vsync;
-	this->width = screenW;
-	this->height = screenH;
-	this->window = nullptr;
+	width = screenW;
+	height = screenH;
+	window = nullptr;
 	this->windowTitle = "Sushi";
 
 	// Megh�vom a glfw-t l�trehoz� f�ggv�nyt
 	initGLFW();
+
+	if (vsync)
+	{
+		enableWindowVsync();
+	}
+
 	// L�trehozom az ablakot
 	createWindow();
 
+
+
+	// Make ontext current
+	glfwMakeContextCurrent(window);
 }
 
 sushi::Display::~Display()
@@ -44,9 +54,9 @@ void sushi::Display::initGLFW()
 	GLFWmonitor* primary = glfwGetPrimaryMonitor();
 	const GLFWvidmode* mode = glfwGetVideoMode(primary);
 
-	this->monitorWidth = mode->width;
-	this->monitorHeight = mode->height;
-	this->hz = mode->refreshRate;
+	monitorWidth = mode->width;
+	monitorHeight = mode->height;
+	hz = mode->refreshRate;
 
 	std::cout << monitorWidth << ", " << monitorHeight << std::endl;
 
@@ -77,9 +87,6 @@ void sushi::Display::createWindow()
 		}
 		
 	}
-
-	// Make ontext current
-	glfwMakeContextCurrent(window);
 	
 }
 

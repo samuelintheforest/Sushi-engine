@@ -11,12 +11,17 @@ namespace sushi
 
 	class FilledRectColorDyn : public Rectangle
 	{
+	public:
 		FilledRectColorDyn();
+		FilledRectColorDyn(IVec4 args, IVec4 color, int32_t z );
 		~FilledRectColorDyn();
 
+		void render();
 
-		void draw();
-	public:
+	protected:
+		IVec4 color;
+	private:
+		void addElement();
 
 		
 	};

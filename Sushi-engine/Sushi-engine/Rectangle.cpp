@@ -20,13 +20,3 @@ sushi::Rectangle::~Rectangle()
 	/*DESTROY OBJ*/
 }
 
-void sushi::Rectangle::draw()
-{
-	/*TODO*/
-	//std::cout << "Draw: from Rectangle class" << std::endl;
-}
-
-void sushi::Rectangle::addElement()
-{
-
-}

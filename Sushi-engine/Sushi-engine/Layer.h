@@ -14,8 +14,6 @@ namespace sushi
 		Layer();
 		~Layer();
 
-		void draw();
-
 	private:
 
 	};

@@ -1,5 +1,5 @@
 /*
-Egy header fájl típusok definiálására
+Egy header f�jl t�pusok defini�l�s�ra
 */
 
 #ifndef TYPES_H
@@ -57,7 +57,25 @@ namespace sushi
 		int32_t a;
 	} FilledRectColorFixDesc;
 
+	typedef struct
+	{
+		int32_t x;
+		int32_t y;
+		int32_t z;
+		int32_t w;
+		int32_t h;
+		int32_t tex_x;
+		int32_t tex_y;
+	} FilledRectTexturedFixDesc;
+
+	/* TODO */
+	typedef struct {
+		unsigned long  Data1;
+		unsigned short Data2;
+		unsigned short Data3;
+		unsigned char  Data4[8];
+	} GUID;
+
 }
 
 #endif // !TYPES_H
-

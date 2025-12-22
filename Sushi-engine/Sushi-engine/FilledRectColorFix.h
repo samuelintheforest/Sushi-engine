@@ -14,7 +14,6 @@ namespace sushi
 		~FilledRectColorFix();
 
 		void getDesc(FilledRectColorFixDesc& rectDesc);
-		void draw();
 	protected:
 		IVec4 color;
 	private:
