@@ -1,5 +1,5 @@
 /*
-Egy header fájl típusok definiálására
+Egy header fÃ¡jl tÃ­pusok definiÃ¡lÃ¡sÃ¡ra
 */
 
 #ifndef TYPES_H

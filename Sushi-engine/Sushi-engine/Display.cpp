@@ -5,14 +5,14 @@ sushi::Display::Display(uint32_t screenW, uint32_t screenH, bool fullscreen, boo
 {
 	this->fullscren = fullscreen;
 	this->vsync = vsync;
-	width = screenW;
-	height = screenH;
-	window = nullptr;
-	windowTitle = "Sushi";
+	this->width = screenW;
+	this->height = screenH;
+	this->window = nullptr;
+	this->windowTitle = "Sushi";
 
-	// Meghívom a glfw-t létrehozó függvényt
+	// Meghï¿½vom a glfw-t lï¿½trehozï¿½ fï¿½ggvï¿½nyt
 	initGLFW();
-	// Létrehozom az ablakot
+	// Lï¿½trehozom az ablakot
 	createWindow();
 
 }
@@ -40,13 +40,13 @@ void sushi::Display::initGLFW()
 
 	glfwWindowHint(GLFW_RESIZABLE, GLFW_FALSE);
 
-	// Alap monitor dimenziók lekérése és változók inicializálása
+	// Alap monitor dimenziï¿½k lekï¿½rï¿½se ï¿½s vï¿½ltozï¿½k inicializï¿½lï¿½sa
 	GLFWmonitor* primary = glfwGetPrimaryMonitor();
 	const GLFWvidmode* mode = glfwGetVideoMode(primary);
 
-	monitorWidth = mode->width;
-	monitorHeight = mode->height;
-	hz = mode->refreshRate;
+	this->monitorWidth = mode->width;
+	this->monitorHeight = mode->height;
+	this->hz = mode->refreshRate;
 
 	std::cout << monitorWidth << ", " << monitorHeight << std::endl;
 

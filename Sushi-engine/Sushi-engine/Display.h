@@ -11,18 +11,18 @@ namespace sushi
 	class Display
 	{
 	public:
-		// === Publikus függvények ===
-		// A Display osztály konstruktora / destruktora
+		// === Publikus fï¿½ggvï¿½nyek ===
+		// A Display osztï¿½ly konstruktora / destruktora
 		Display(uint32_t screenW, uint32_t screenH, bool fullscreen = false, bool vsync = true);
 		~Display();
 
-		// Ablak állapot változások
+		// Ablak ï¿½llapot vï¿½ltozï¿½sok
 		void enableWindowFullscreen();
 		void disableWindowFullscreen();
 		void enableWindowVsync();
 		void disableWindowVsync();
 
-		// Getterek és szetterek helyi változókhoz
+		// Getterek ï¿½s szetterek helyi vï¿½ltozï¿½khoz
 		uint32_t getMonitorHz();
 		uint32_t getMonitorWidth();
 		uint32_t getMonitorHeight();
@@ -32,20 +32,20 @@ namespace sushi
 		bool getWindowShouldClose();
 
 
-		// === Member változók - publikus osztélyváltozók ===
+		// === Member vï¿½ltozï¿½k - publikus osztï¿½lyvï¿½ltozï¿½k ===
 		GLFWwindow* window;
 
 
 	private:
-		// A glfw könyvtár aktiválodík
+		// A glfw kï¿½nyvtï¿½r aktivï¿½lodï¿½k
 		void initGLFW();
-		// A glfw window létrehozó függvény
+		// A glfw window lï¿½trehozï¿½ fï¿½ggvï¿½ny
 		void createWindow();
-		// Hibákhoz - függvényhívás (callback)
+		// Hibï¿½khoz - fï¿½ggvï¿½nyhï¿½vï¿½s (callback)
 		static void errorCallback(int code, const char* description);
 		
 
-		// Field változók - helyi változók
+		// Field vï¿½ltozï¿½k - helyi vï¿½ltozï¿½k
 		bool fullscren;
 		bool vsync;
 		uint32_t width;

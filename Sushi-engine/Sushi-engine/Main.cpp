@@ -22,7 +22,7 @@ int main()
 		/* Poll the events, update state */
 		GameLogic::updateState();
 
-		std::cout << "Ellapsed time since startup: " << GameLogic::TimerManager->getTimeMicroSec() << std::endl;
+		//std::cout << "Ellapsed time since startup: " << GameLogic::TimerManager->getTimeMicroSec() << std::endl;
 		/* Main logic */
 		/* TODO */
 		GameLogic::renderState();
