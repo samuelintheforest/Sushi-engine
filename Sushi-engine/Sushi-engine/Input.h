@@ -5,18 +5,25 @@
 namespace sushi
 {
 	/*
-	Input osztály:
-	- Bemenetek kezelése: Egér, Billentyûzet, Kontrollerek
-	- Eventek definiálása
+	Input osztï¿½ly:
+	- Bemenetek kezelï¿½se: Egï¿½r, Billentyï¿½zet, Kontrollerek
+	- Eventek definiï¿½lï¿½sa
 	*/
 	class Input
 	{
 	public:
-		// Konstruktor és Destruktor definiálása
+		// Konstruktor ï¿½s Destruktor definiï¿½lï¿½sa
 		Input();
 		~Input();
 		void pollEvents();
 		void swapDisplayBuffer();
+		
+		void checkScroll();
+
+		int32_t getScrollChange();
+
+		static const int32_t SCROLLED_DOWN = -1;
+		static const int32_t SCROLLED_UP = 1;
 
 	private:
 		// Keyboard events callback
@@ -33,7 +40,11 @@ namespace sushi
 		static void joystick_callback(int jid, int event);
 		// Joystick jelen van-e vagy sem
 		static void check_joysticks_present();
+		
 		static uint32_t joystickPresent[16];
+		static int32_t scrollChange;
+
+
 		GLFWwindow* WindowPtr;
 		
 	};

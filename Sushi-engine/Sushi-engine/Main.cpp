@@ -9,39 +9,94 @@
 
 using namespace sushi;
 
+void updateZoom(Vec3 &inputVec);
+
 int main()
 {
 	GameLogic::initGame();
 
-	SGXTexture* tx = new SGXTexture("/home/samu/Pictures/earth_tp.png", false);
-	std::cout << tx->getTextureWidth() << std::endl;
+	std::string earth_texture_path = "/home/samu/Pictures/earth_tp.png";
+	std::string knight_01_path = "/home/samu/Documents/coding/games/assets/brackeys_platformer_assets/sprites/knight_01.png";
+
+	SGXTexture* tx = new SGXTexture(earth_texture_path, false);
+	SGXTexture* tx_knight = new SGXTexture(knight_01_path, false);
+	std::cout << "Texture path dimensions: w: " << tx->getTextureWidth() << " h: " << tx->getTextureHeight() << std::endl;
 	// SGXTexture* tx2 = new SGXTexture("", false);
 
 	// FilledRectColorFix rect = { {100, 100, 310, 200}, {0, 0, 255, 255}, 1 };
-	FilledRectTexturedFix rectTx = { {200, 200, tx->getTextureWidth() * 5.0f, tx->getTextureHeight() * 5.0f}, 2, {0.0, 0.0, 1.0, 1.0}, tx };
-	FilledRectTexturedFix rectTx2 = { {400, 400, tx->getTextureWidth() * 5.0f, tx->getTextureHeight() * 5.0f}, 4, {0.0, 0.0, 1.0, 1.0}, tx };
+	FilledRectTexturedFix rectTx = { {0, 0, tx->getTextureWidth() * 5.0f, tx->getTextureHeight() * 5.0f}, 1, {0.0, 0.0, 1.0, 1.0}, tx };
+	FilledRectTexturedFix rectTx2 = { {50, 50, tx->getTextureWidth() * 5.0f, tx->getTextureHeight() * 5.0f}, 4, {0.0, 0.0, 1.0, 1.0}, tx };
+	FilledRectTexturedFix rectTx3 = { {30, 30, tx_knight->getTextureWidth() * 5.0f, tx_knight->getTextureHeight() * 5.0f}, 3, {0.0, 0.0, 1.0, 1.0}, tx_knight };
 	// FilledRectTexturedFix rectTx2 = { {200, 100, tx2->getTextureWidth(), tx2->getTextureHeight()}, 0, {0.0, 0.0, 1.0, 1.0}, tx2};
 
-	IVec3 playerPos = {100, 100, 3};
+	IVec3 playerPos = {100, 100, 1};
 	IVec2 playerDim = {100, 250};
 	IVec4 playerColor = {50, 168, 82, 255};
+
+	Vec3 zoomFactor(1.0f);
+	int32_t counter = 0;
+
+
 	
 	GameLogic::GraphicsManager->setUpSGXFixVertexMisc();
+
+	uint64_t startTimeMS = GameLogic::TimerManager->getTimeMiliSec();
 	while(!GameLogic::DisplayManager->getWindowShouldClose())
 	{
 		/* Poll the events, update state */
 		GameLogic::updateState();
+		updateZoom(zoomFactor);
 		// sushi::GameLogic::GraphicsManager->clearSGXScreen((glm::sin((float)GameLogic::TimerManager->getTimeMicroSec() * 0.000001) + 1.0f) * 122.0f, 230, 151, 255);
 		//std::cout << "Ellapsed time since startup: " << GameLogic::TimerManager->getTimeMicroSec() << std::endl;
-		playerPos.x = 250 + 100.0 * sin((double)GameLogic::TimerManager->getTimeMicroSec() / 100000.0);
+		if (GameLogic::TimerManager->getTimeMiliSec() - startTimeMS > 15L)
+		{
+			startTimeMS = GameLogic::TimerManager->getTimeMiliSec();
+			counter += 2;
+
+			if (counter > 800) {
+				counter = 0;
+			}
+
+			std::cout << counter << std::endl;
+		}
+
+
+
+		playerPos.x = counter;
 		/* Render using Graphical API - Wait until rendering is finished */
 		FilledRectColorDyn player({playerPos.x, playerPos.y, playerDim.x, playerDim.y}, playerColor, playerPos.z);
+		//GameLogic::GraphicsManager->setFilledRectFixViewM4 = glm::scale(this->FilledRectFixViewM4, Vec3(0.5f, 0.5f, 0.5f));
+		
+
+    	//setSGXUniformMatrices(this->FilledRectFixModelM4, this->FilledRectFixViewM4, this->FilledRectFixProjectionM4);
 		GameLogic::renderState();
 	}
 
 	delete tx;
+	delete tx_knight;
 	// delete tx2;
 	GameLogic::endGame();
+}
+
+void updateZoom(Vec3 &zoomFactor) {
+	
+	if (GameLogic::InputManager->getScrollChange() == GameLogic::InputManager->SCROLLED_UP) 
+	{	
+		zoomFactor += Vec3(0.07f);
+		std::cout << "Scrolled up (zoomed in)\n";
+ 	} else if (GameLogic::InputManager->getScrollChange() == GameLogic::InputManager->SCROLLED_DOWN) 
+	{
+		zoomFactor -= Vec3(0.07f);
+		std::cout << "Scrolled down (zoomed out)\n ";
+	}
+	
+	Mat4 viewMatrix = GameLogic::GraphicsManager->getSGXViewMatrix();
+	viewMatrix = glm::scale(viewMatrix, zoomFactor);
+	GameLogic::GraphicsManager->setSGXViewMatrix(viewMatrix);
+	GameLogic::GraphicsManager->setSGXUniformMatrices(GameLogic::GraphicsManager->getSGXModelMatrix(), 
+		GameLogic::GraphicsManager->getSGXViewMatrix(), GameLogic::GraphicsManager->getSGXProjectionMatrix());
+ 	
+	zoomFactor = Vec3(1.0f);
 }
 
 //// HELPER FUNCTION: CENTERS THE SCREEN

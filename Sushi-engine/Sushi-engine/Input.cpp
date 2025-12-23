@@ -5,12 +5,13 @@
 #include "GameLogic.h"
 
 uint32_t sushi::Input::joystickPresent[16];
+int32_t sushi::Input::scrollChange;
 
 sushi::Input::Input()
 {
 	WindowPtr = sushi::GameLogic::DisplayManager->window;
 
-	// A callback függvények beállítása
+	// A callback fï¿½ggvï¿½nyek beï¿½llï¿½tï¿½sa
 	glfwSetKeyCallback(WindowPtr, (GLFWkeyfun)key_callback);
 	glfwSetCursorPosCallback(WindowPtr, (GLFWcursorposfun)cursor_position_callback);
 	glfwSetCursorEnterCallback(WindowPtr, (GLFWcursorenterfun)cursor_enter_callback);
@@ -32,12 +33,18 @@ sushi::Input::~Input()
 
 void sushi::Input::pollEvents()
 {
+	scrollChange = 0;
 	glfwPollEvents();
 }
 
 void sushi::Input::swapDisplayBuffer()
 {
 	glfwSwapBuffers(this->WindowPtr);
+}
+
+int32_t sushi::Input::getScrollChange()
+{
+    return scrollChange;
 }
 
 void sushi::Input::key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
@@ -64,7 +71,8 @@ void sushi::Input::mouse_button_callback(GLFWwindow* window, int button, int act
 
 void sushi::Input::scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
 {
-	window;
+	//window;
+	scrollChange = (int32_t)yoffset;
 	//std::cout << "=== EVENT: (Mouse) ||| Scroll: xoffset: " << xoffset << ", yoffset: " << yoffset << std::endl;
 }
 

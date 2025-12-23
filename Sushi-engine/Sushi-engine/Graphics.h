@@ -38,6 +38,14 @@ namespace sushi
 		void resetDynRectBuffer();
 		uint32_t getDynRectCount();
 
+		void setSGXViewMatrix(const Mat4 &view);
+		Mat4& getSGXViewMatrix();
+
+		void setSGXModelMatrix(const Mat4 &model);
+		Mat4& getSGXModelMatrix();
+
+		void setSGXProjectionMatrix(const Mat4 &proj);
+		Mat4& getSGXProjectionMatrix();
 
 		/* Containers, Counters, and GLobjects - FilledRectColorFix */
 		std::vector<float> fixFilledRectVertices;

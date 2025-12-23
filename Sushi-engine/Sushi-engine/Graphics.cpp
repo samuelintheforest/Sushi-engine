@@ -30,12 +30,12 @@ sushi::Graphics::Graphics(uint32_t maxDynRect)
     
     /* Depth, Blending (Transparency), Viewport and Shader settings */
     compileSGXShaders();
-    enableSGXDepth();
+    //enableSGXDepth();
     enableSGXBlending();
     setSGXViewport(0, 0, 800, 800);
     this->FilledRectFixShader->use();
     this->FilledRectFixProjectionM4 = glm::orthoRH(0.0f, 800.0f, 0.0f, 800.0f, -65535.f, 65535.f);
-
+    
     setSGXUniformMatrices(this->FilledRectFixModelM4, this->FilledRectFixViewM4, this->FilledRectFixProjectionM4);
 
     /* Generate premade Indices (dynamic rectangle) */
@@ -75,6 +75,8 @@ void sushi::Graphics::enableSGXBlending()
 void sushi::Graphics::enableSGXDepth()
 {
     glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LESS);
+    glDepthMask(GL_TRUE);
 }
 
 void sushi::Graphics::disableSGXDepth()
@@ -96,6 +98,36 @@ void sushi::Graphics::setDynRectCount(uint32_t number)
 uint32_t sushi::Graphics::getDynRectCount()
 {
     return this->dynRectCount;
+}
+
+void sushi::Graphics::setSGXViewMatrix(const Mat4 &view)
+{
+    this->FilledRectFixViewM4 = view;
+}
+
+sushi::Mat4& sushi::Graphics::getSGXViewMatrix()
+{
+    return this->FilledRectFixViewM4;
+}
+
+void sushi::Graphics::setSGXModelMatrix(const Mat4 &model)
+{
+    this->FilledRectFixModelM4 = model;
+}
+
+sushi::Mat4 &sushi::Graphics::getSGXModelMatrix()
+{
+    return this->FilledRectFixModelM4;
+}
+
+void sushi::Graphics::setSGXProjectionMatrix(const Mat4 &proj)
+{
+    this->FilledRectFixProjectionM4 = proj;
+}
+
+sushi::Mat4 &sushi::Graphics::getSGXProjectionMatrix()
+{
+    return this->FilledRectFixProjectionM4;
 }
 
 void sushi::Graphics::compileSGXShaders()

@@ -11,7 +11,7 @@ uint64_t sushi::GameLogic::cycleStart = 0;
 void sushi::GameLogic::initGame(void)
 {
 	sushi::GameLogic::TimerManager = new sushi::Timer();
-	sushi::GameLogic::DisplayManager = new sushi::Display(800, 800, false, true);
+	sushi::GameLogic::DisplayManager = new sushi::Display(800, 800, false, false);
 	sushi::GameLogic::InputManager = new sushi::Input();
 	sushi::GameLogic::GraphicsManager = new sushi::Graphics(2000);
 	sushi::SceneDescription sd = { sushi::SCENE_2D , 1, 0 };
@@ -34,7 +34,7 @@ void sushi::GameLogic::updateState()
 	/* Update the input events */
 	sushi::GameLogic::InputManager->pollEvents();
 	/* Clear screen */
-	sushi::GameLogic::GraphicsManager->clearSGXScreen(122, 122, 122, 255);
+	sushi::GameLogic::GraphicsManager->clearSGXScreen(57, 36, 244, 255);
 	/* Reset the DynamicRect buffers & Counters */
 	sushi::GameLogic::GraphicsManager->resetDynRectBuffer();
 }
